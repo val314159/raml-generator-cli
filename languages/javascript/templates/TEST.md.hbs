@@ -1,26 +1,38 @@
 #!/usr/bin/python
 
-{{#each allMethods}}
-#MMMMMM------------------------------- {{method}} {{id}} {{key}}
-#@index={{@index}} @key={{@key}}
-#keys . = {{keys .}}
+import requests,json
 
-def {{id}}(self,
-  {{#each resource.uriParameters}}{{@key}}=None,{{/each}} #uri
+{{#each allMethods}}
+def rpc{{flatPath resource}}_{{method}}(self,
+  {{#each resource.uriParameters}}{{displayName}}=None,{{/each}} #uri
   {{#each queryParameters}}{{@key}}=None,{{/each}} # query
   {{#each body}}{{#each formParameters}}{{@key}}=None,{{/each}}{{/each}} # form
-  ):
-  """
+):
+   """
   {{{description}}}
   """
-TESTQQQ {{fullPath resource}} TESTZZZ1
-TESTQQQ {{flatPath resource}} TESTZZZ9
-  #resource = {{resource}}
-  #keys resource = {{keys resource}}
-  #resource.key = {{resource.key}}
-  #resource.relativeUri = {{resource.relativeUri}}
-  #keys resource.uriParameters = {{keys resource.uriParameters}}  {{#each resource.uriParameters}}    [{{keys .}}/{{displayName}}/{{@key}}]  {{/each}}
-  return
+   path='{{fullPath resource}}'
+
+   uri=path
+   {{#each resource.uriParameters}}
+   uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
+   {{/each}}
+
+   query={}
+   {{#each queryParameters}}
+   query['{{@key}}']={{@key}}
+   {{/each}}
+
+   qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])
+   if qstr: qstr='?'+qstr
+   if '{{method}}' in ('post',):
+       form={}
+       {{#each body}}{{#each formParameters}}
+       form['{{@key}}']={{@key}}
+       {{/each}}{{/each}}
+       return requests.{{method}}(url+qstr,data=form)
+   else:
+       return requests.{{method}}(url+qstr)
 
 {{/each}}
 
