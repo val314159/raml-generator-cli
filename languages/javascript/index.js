@@ -9,7 +9,6 @@ module.exports = generator({
   templates: {
     '.gitignore':   require('./templates/.gitignore.hbs'),
     'index.js':     require('./templates/index.js.hbs'),
-    'TEST.md':      require('./templates/TEST.md.hbs'),
     'README.md':    require('./templates/README.md.hbs'),
     'INSTALL.md':   require('./templates/INSTALL.md.hbs'),
     'package.json': require('./templates/package.json.hbs')
@@ -27,8 +26,6 @@ module.exports = generator({
     stringify:         require('javascript-stringify'),
     dependencies:      require('./helpers/dependencies'),
     requestSnippet:    require('./helpers/request-snippet'),
-    fullPath:          require('./helpers/fullPath'),
-    flatPath:          require('./helpers/flatPath'),
     parametersSnippet: require('./helpers/parameters-snippet')
   }
 });
