@@ -13,11 +13,13 @@ def {{id}}(self,
   """
   {{{description}}}
   """
-  resource = {{resource}}
-  keys resource = {{keys resource}}
-  resource.key = {{resource.key}}
-  resource.relativeUri = {{resource.relativeUri}}
-  keys resource.uriParameters = {{keys resource.uriParameters}}  {{#each resource.uriParameters}}    [{{keys .}}/{{displayName}}/{{@key}}]  {{/each}}
+TESTQQQ {{fullPath resource}} TESTZZZ1
+TESTQQQ {{flatPath resource}} TESTZZZ9
+  #resource = {{resource}}
+  #keys resource = {{keys resource}}
+  #resource.key = {{resource.key}}
+  #resource.relativeUri = {{resource.relativeUri}}
+  #keys resource.uriParameters = {{keys resource.uriParameters}}  {{#each resource.uriParameters}}    [{{keys .}}/{{displayName}}/{{@key}}]  {{/each}}
   return
 
 {{/each}}

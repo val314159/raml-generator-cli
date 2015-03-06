@@ -27,7 +27,8 @@ module.exports = generator({
     stringify:         require('javascript-stringify'),
     dependencies:      require('./helpers/dependencies'),
     requestSnippet:    require('./helpers/request-snippet'),
-    testy:             require('./helpers/testy'),
+    fullPath:          require('./helpers/fullPath'),
+    flatPath:          require('./helpers/flatPath'),
     parametersSnippet: require('./helpers/parameters-snippet')
   }
 });
