@@ -739,14 +739,12 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
-    var stack1, alias1=this.escapeExpression, alias2=this.lambda;
+    var stack1;
 
   return "  "
-    + alias1((helpers.getUriList || (depth0 && depth0.getUriList) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
-    + "\n  R "
-    + alias1(alias2(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.QQQ : stack1), depth0))
+    + this.escapeExpression((helpers.getUriList || (depth0 && depth0.getUriList) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
     + "\n\n"
-    + ((stack1 = helpers.blockHelperMissing.call(depth0,alias2(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"2":function(depth0,helpers,partials,data) {
     var helper, alias1=this.escapeExpression, alias2=helpers.helperMissing, alias3="function";
 
