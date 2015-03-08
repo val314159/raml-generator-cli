@@ -1,0 +1,10 @@
+test000
+{{#each allMethods}}
+  {{getUriList resource}}
+  R {{resource.QQQ}}
+
+  {{#resource.uriList}}
+uri {{.}} {{displayName}} {{keys .}} {{required}} {{type}}
+  {{/resource.uriList}}
+{{/each}}
+test999
