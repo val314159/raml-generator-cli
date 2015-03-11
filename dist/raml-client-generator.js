@@ -754,19 +754,29 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "#form\n    ):\n    ###\n    path='"
     + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
-    + "'\n    uri=path\n"
+    + "'\n    url=self.url_prefix+path\n"
     + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
     + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
     + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n      # httplib stuff\n      body = urllib.urlencode(form)\n      # end httplib stuff\n    else:\n      headers = {}\n      form = None\n      # httplib stuff\n      body = None\n      # end httplib stuff\n      pass\n    if 1:\n      # requests stuff\n      return requests."
     + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
-    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    else:\n      # httplib stuff\n      r = self.conn.request('"
+    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    elif 2:\n      # httplib2 stuff\n      h = httplib2.Http()\n      r = h.request(url+qstr,method='"
     + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
-    + "'.upper(),url+qstr, body, headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n      pass\n";
+    + "'.upper(),\n        body=body, headers=headers)\n      r = c.getresponse()\n      return r\n      # end httplib2 stuff\n    elif 3:\n      # This should use some kind of Future.  Maybe pass in the constructor.\n      http_client.fetch(url+qstr, handle_request, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n    elif 4:\n      import urlfetch\n      return urlfetch.request(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), data=body)\n    elif 5:\n      # google app engine sync\n      from google.appengine.api.urlfetch import fetch\n      return fetch(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    elif 6:\n      # google app engine async\n      from google.appengine.api.urlfetch import create_rpc, make_fetch_call\n      rpc = create_rpc()\n      return make_fetch_call(rpc, url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    else:\n      # httplib stuff\n      import urllib2\n      req = urllib2.Request(self.url_prefix)\n      if req.get_type()=='https':\n        h = httplib.HTTPSConnection(host=req.host(), port=req.port() )\n      else:\n        h = httplib.HTTPConnection( host=req.host(), port=req.port() )\n        pass\n      whole_path = self.path_prefix+path+qstr\n      r = h.request('"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),whole_path,body,headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n";
 },"2":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -784,7 +794,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
 },"8":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "    uri=uri.replace('{%s}'%'"
+  return "    url=url.replace('{%s}'%'"
     + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
     + "',"
     + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
@@ -816,7 +826,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "import os,json\nimport requests\nimport httplib,urllib\n\nclass LL_API:\n  def __init__(self,auth_query={},access_token=None,\n    # requests stuff\n    url_prefix=None,\n    # end requests stuff\n    # httplib stuff\n    host=None,\n    port=None,\n    path_prefix=None,\n    use_ssl=True,\n    # end httplib stuff\n  ):\n    self.path_prefix=path_prefix\n    self.host=host\n    self.port=port\n    self.use_ssl=use_ssl\n    if url_prefix is None:\n      proto='http' + ('s' if use_ssl else '')\n      url_prefix='%s://%s:%s%s' % (proto,host,port,path_prefix)\n      pass\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    # httplib stuff\n    self.host    = host\n    self.port    = port\n    self.use_ssl = use_ssl\n    # end httplib stuff\n    pass\n  def connect(self):\n    # httplib stuff\n    if self.use_ssl:\n      httplib.HTTPSConnection(self.host)\n    else:\n      httplib.HTTPConnection( self.host)\n      pass\n    # end httplib stuff\n    pass\n  #each allMethods\n  "
+  return "import gevent.monkey;gevent.monkey.patch_all()\nimport geventhttpclient.httplib;geventhttpclient.httplib.patch()\nfrom geventhttpclient.httplib import HTTPConnection,HTTPSConnection\nimport requests\nimport urllib,urllib2,httplib\nimport urllib,httplib2\n\nimport os,json\n\ndef handle_request(response):\n    '''callback needed when a response arrive'''\n    if response.error:\n        print \"Error:\", response.error\n    else:\n        print 'called'\n        print response.body\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  #tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n  "
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "  pass # end class LL_API\n#EOF\n";
 },"useData":true});
