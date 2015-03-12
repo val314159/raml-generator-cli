@@ -1,3 +1,31 @@
+{{#each allMethods}}{{getUriList resource}}{{/each}}
+
+import tornado.ioloop
+import tornado.web
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("Hello, world")
+
+  {{#each allMethods}}{{getUriList resource}}
+class rpc{{flatPath resource}}_handler(tornado.web.RequestHandler):
+  def {{method}}(self):
+    pass
+  pass
+  {{/each}}
+
+application = tornado.web.Application([
+{{#each allMethods}}
+    ( r'{{fullPath resource}}' ,rpc{{flatPath resource}}_handler),
+{{/each}}
+])
+
+if __name__ == "__main__":
+    application.listen(8888)
+    tornado.ioloop.IOLoop.instance().start()
+
+#######
+
 import gevent.monkey;gevent.monkey.patch_all()
 import geventhttpclient.httplib;geventhttpclient.httplib.patch()
 from geventhttpclient.httplib import HTTPConnection,HTTPSConnection
@@ -31,7 +59,7 @@ class LL_API:
       pass
     pass
   #each allMethods
-  {{#each allMethods}}{{getUriList resource}}
+  {{#each allMethods}}
   def rpc{{flatPath resource}}_{{method}}(self,
     {{#each resource.uriList}}{{displayName}}=None,{{/each}}#uri
     {{#each queryParameters}}{{@key}}=None,{{/each}}#query

@@ -1,3 +1,31 @@
+{{#each allMethods}}{{getUriList resource}}{{/each}}
+
+  {{#each allMethods}}{{getUriList resource}}
+def rpc{{flatPath resource}}_{{method}}():
+  pass
+  {{/each}}
+
+def match(x,y):
+    return x is y
+
+def app2(environ, start_response):
+    start_response("200 OK", [])
+    if False:
+      pass
+{{#each allMethods}}
+    elif match(environ['PATH_INFO'],r'{{fullPath resource}}'):
+      return rpc{{flatPath resource}}_{{method}}()
+{{/each}}
+    return ['OK']
+])
+
+if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
+    srv = make_server('localhost', 8080, app)
+    srv.serve_forever()
+
+#######
+
 import gevent.monkey;gevent.monkey.patch_all()
 import geventhttpclient.httplib;geventhttpclient.httplib.patch()
 from geventhttpclient.httplib import HTTPConnection,HTTPSConnection
@@ -31,7 +59,7 @@ class LL_API:
       pass
     pass
   #each allMethods
-  {{#each allMethods}}{{getUriList resource}}
+  {{#each allMethods}}
   def rpc{{flatPath resource}}_{{method}}(self,
     {{#each resource.uriList}}{{displayName}}=None,{{/each}}#uri
     {{#each queryParameters}}{{@key}}=None,{{/each}}#query
