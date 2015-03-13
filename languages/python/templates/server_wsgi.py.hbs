@@ -1,10 +1,5 @@
 {{#each allMethods}}{{getUriList resource}}{{/each}}
 
-  {{#each allMethods}}{{getUriList resource}}
-def rpc{{flatPath resource}}_{{method}}():
-  pass
-  {{/each}}
-
 def match(x,y):
     return x is y
 
@@ -13,8 +8,40 @@ def app2(environ, start_response):
     if False:
       pass
 {{#each allMethods}}
-    elif match(environ['PATH_INFO'],r'{{fullPath resource}}'):
-      return rpc{{flatPath resource}}_{{method}}()
+    elif (environ['REQUEST_METHOD']=='{{method}}'.upper()  and
+            match(environ['PATH_INFO'],r'{{fullPath resource}}')):
+
+{{#each resource.uriList}}
+        {{displayName}} = 1
+        if bool({{required}}) and {{displayName}} is None:
+            raise "MISSING"	
+        if wrongType({{displayName}},'{{type}}'):
+            raise "WRONGTYPE"
+{{/each}}
+
+{{#each queryParameters}}
+        {{displayName}} = 1
+        if bool({{required}}) and {{displayName}} is None:
+            raise "MISSING"	
+        if wrongType({{displayName}},'{{type}}'):
+            raise "WRONGTYPE"
+{{/each}}
+
+{{#each body}}
+{{#each formParameters}}
+        {{displayName}} = 1
+        if bool({{required}}) and {{displayName}} is None:
+            raise "MISSING"	
+        if wrongType({{displayName}},'{{type}}'):
+            raise "WRONGTYPE"
+{{/each}}
+{{/each}}
+
+        return rpc{{flatPath resource}}_{{method}}(
+            {{#each resource.uriList}}{{displayName}},{{/each}}#uri
+            {{#each queryParameters}}{{@key}},{{/each}}#query
+            {{#each body}}{{#each formParameters}}{{@key}},{{/each}}{{/each}}#form
+        )
 {{/each}}
     return ['OK']
 ])
