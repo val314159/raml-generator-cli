@@ -1,16 +1,4 @@
 /**
- * Pull out request parameters from the resource.
- *
- * @param  {Object} resource
- * @return {String}
- */
-var params = function (resource) {
-  return resource.uriParameters.map(function (param) {
-    return param.displayName;
-  }).join(', ');
-};
-
-/**
  * Stringify a resource into a request snippet.
  *
  * @param  {Object} resource
