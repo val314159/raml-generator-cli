@@ -2,6 +2,18 @@
 
 {{importJson . "languages/python/qwert.json" "qwert"}}
 
+def wrongType(var,typ):
+    try:
+        if typ=='integer':
+            int(var)
+        elif typ=='number':
+            float(var)
+            pass
+        return False
+    except:
+        return True
+    pass
+
 true,false=True,False
 
 class Mock_API:
@@ -14,6 +26,20 @@ class Mock_API:
     ###
     #  put logic here
     ###
+{{#each resource.uriList}}
+    if bool({{required}}) and {{displayName}} is None:
+      raise "MISSING"	
+    if wrongType({{displayName}},'{{type}}'):
+      raise "WRONGTYPE"
+{{/each}}
+
+{{#each queryParameters}}
+    if bool({{required}}) and {{displayName}} is None:
+      raise "MISSING"	
+    if wrongType({{displayName}},'{{type}}'):
+      raise "WRONGTYPE"
+{{/each}}
+
 {{#each body}}
 {{#each formParameters}}
     if bool({{required}}) and {{displayName}} is None:
