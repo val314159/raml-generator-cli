@@ -14,25 +14,28 @@ def rpc{{flatPath resource}}_{{method}}(self,
    path='{{fullPath resource}}'
 
    uri=path
-   {{#each resource.uriParameters}}
+{{#each resource.uriParameters}}
    uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
-   {{/each}}
+{{/each}}
 
    query={}
-   {{#each queryParameters}}
+{{#each queryParameters}}
    query['{{@key}}']={{@key}}
-   {{/each}}
+{{/each}}
 
    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])
    if qstr: qstr='?'+qstr
-   if '{{method}}' in ('post',):
+   if '{{method}}' in ('post','put','patch'):
        form={}
-       {{#each body}}{{#each formParameters}}
+{{#each body}}{{#each formParameters}}
        form['{{@key}}']={{@key}}
-       {{/each}}{{/each}}
-       return requests.{{method}}(url+qstr,data=form)
+{{/each}}{{/each}}
+       body = urllib.urlencode(form)
+       #return requests.{{method}}(url+qstr,data=form)
    else:
-       return requests.{{method}}(url+qstr)
+       body = None
+       pass#return requests.{{method}}(url+qstr)
+   return requests.{{method}}(url+qstr,data=body)
 
 {{/each}}
 
@@ -41,4 +44,3 @@ def main():
   pass
 
 if __name__=='__main__': main()
-
