@@ -3,6 +3,8 @@
 import requests,json
 
 def wrongType(var,typ):
+    print "wrongType"+repr((var,typ))
+    
     try:
         if typ=='integer':
             int(var)
@@ -16,76 +18,105 @@ def wrongType(var,typ):
 
 true,false=True,False
 
+class RequestsAPI(object):
+  def __init__(self,auth_query={},access_token=None):
+    self.auth_query=dict(auth_query)
+    self.baseUri='{{baseUri}}'
+    self.version='{{version}}'
+    self.prefixUri=self.baseUri.replace('{version}',self.version)
+    if access_token:
+      self.auth_query['access_token'] = access_token
+      pass
+    pass
 {{#each allMethods}}
-def rpc{{flatPath resource}}_{{method}}(self,
+  def rpc{{flatPath resource}}_{{method}}(self,
   {{#each resource.uriParameters}}{{displayName}}=None,{{/each}} #uri
   {{#each queryParameters}}{{@key}}=None,{{/each}} # query
   {{#each body}}{{#each formParameters}}{{@key}}=None,{{/each}}{{/each}} # form
-):
-   """
+  ):
+    """
   {{{description}}}
-  """
-   path='{{fullPath resource}}'
+    """
+    path='{{fullPath resource}}'
 
-   uri=path
+    uri=self.prefixUri+path
 {{#each resource.uriList}}
-   uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
+    uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
 {{/each}}
 
     ###
     #  put field validation here
     ###
 {{#each resource.uriList}}
-    if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"
-    if wrongType({{displayName}},'{{type}}'):
-      raise "WRONGTYPE"
+    print "uCHECK {{displayName}}"
+    if {{displayName}} is None:
+      if bool({{required}}):
+        raise "MISSING"
+    else:
+      if wrongType({{displayName}},'{{type}}'):
+        raise "WRONGTYPE"
 {{/each}}
 
 {{#each queryParameters}}
-    if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"
-    if wrongType({{displayName}},'{{type}}'):
-      raise "WRONGTYPE"
+    print "qCHECK {{displayName}}"
+    if {{displayName}} is None:
+      if bool({{required}}):
+        raise "MISSING"
+    else:
+      if wrongType({{displayName}},'{{type}}'):
+        raise "WRONGTYPE"
 {{/each}}
 
 {{#each body}}
 {{#each formParameters}}
-    if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"
-    if wrongType({{displayName}},'{{type}}'):
-      raise "WRONGTYPE"
+    print "fCHECK {{displayName}}"
+    if {{displayName}} is None:
+      if bool({{required}}):
+        raise "MISSING"
+    else:
+      if wrongType({{displayName}},'{{type}}'):
+        raise "WRONGTYPE"
 {{/each}}
 {{/each}}
     ###
     #  end field validation here
     ###
 
+    access_token = self.auth_query.get('access_token')
 
-
-   query={}
+    query={}
+    if access_token:
+      query['access_token'] = access_token
+      pass
 {{#each queryParameters}}
-   query['{{@key}}']={{@key}}
+    if {{@key}} is not None:
+      query['{{@key}}']={{@key}}
 {{/each}}
 
-   qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])
-   if qstr: qstr='?'+qstr
-   if '{{method}}' in ('post','put','patch'):
+    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])
+    if qstr: qstr='?'+qstr
+
+    body = None
+    if '{{method}}' in ('post','put','patch'):
        form={}
 {{#each body}}{{#each formParameters}}
-       form['{{@key}}']={{@key}}
+       if {{@key}} is not None:
+         form['{{@key}}']={{@key}}
 {{/each}}{{/each}}
        body = urllib.urlencode(form)
-       #return requests.{{method}}(url+qstr,data=form)
-   else:
-       body = None
-       pass#return requests.{{method}}(url+qstr)
-   return requests.{{method}}(url+qstr,data=body)
+       pass
+    print "GO", repr(uri+qstr)
+    return requests.{{method}}(uri+qstr,data=body)
 
 {{/each}}
 
 def main():
-  print "main"
-  pass
+    access_token='185651424.06e610f.3bd9116b82b2448395ca411d2e13bc39'
+    print "main1"
+    api = RequestsAPI(access_token=access_token)
+    print "main2"
+    api.rpc_media_popular_get()
+    print "main3"
+    pass
 
 if __name__=='__main__': main()

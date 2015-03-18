@@ -162,7 +162,7 @@ module.exports = generator({
   }
 });
 
-},{"../../lib/generator":20,"./helpers/dependencies":1,"./helpers/parameters-snippet":2,"./helpers/request-snippet":3,"./partials/auth.js.hbs":5,"./partials/client.js.hbs":6,"./partials/resources.js.hbs":7,"./partials/utils.js.hbs":8,"./templates/.gitignore.hbs":9,"./templates/INSTALL.md.hbs":10,"./templates/README.md.hbs":11,"./templates/index.js.hbs":12,"./templates/package.json.hbs":13,"camel-case":27,"javascript-stringify":45}],5:[function(require,module,exports){
+},{"../../lib/generator":33,"./helpers/dependencies":1,"./helpers/parameters-snippet":2,"./helpers/request-snippet":3,"./partials/auth.js.hbs":5,"./partials/client.js.hbs":6,"./partials/resources.js.hbs":7,"./partials/utils.js.hbs":8,"./templates/.gitignore.hbs":9,"./templates/INSTALL.md.hbs":10,"./templates/README.md.hbs":11,"./templates/index.js.hbs":12,"./templates/package.json.hbs":13,"camel-case":41,"javascript-stringify":59}],5:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -177,7 +177,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   return ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.security : depth0)) != null ? stack1['OAuth 2.0'] : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-},{"hbsfy/runtime":41}],6:[function(require,module,exports){
+},{"hbsfy/runtime":55}],6:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -194,7 +194,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + ";\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],7:[function(require,module,exports){
+},{"hbsfy/runtime":55}],7:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
@@ -273,21 +273,21 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.supportedMethods : depth0),{"name":"each","hash":{},"fn":this.program(11, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
 
-},{"hbsfy/runtime":41}],8:[function(require,module,exports){
+},{"hbsfy/runtime":55}],8:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "var TEMPLATE_REGEXP = /\\{([^\\{\\}]+)\\}/g;\n\n/**\n * @param  {String} string\n * @param  {Object} interpolate\n * @param  {Object} defaults\n * @return {String}\n */\nfunction template (string, interpolate, defaults) {\n  defaults    = defaults || {};\n  interpolate = interpolate || {};\n\n  return string.replace(TEMPLATE_REGEXP, function (match, key) {\n    if (interpolate[key] != null) {\n      return encodeURIComponent(interpolate[key]);\n    }\n\n    if (defaults[key] != null) {\n      return encodeURIComponent(defaults[key]);\n    }\n\n    return '';\n  });\n}\n\n/**\n * @param  {Object} dest\n * @param  {Object} ...source\n * @return {Object}\n */\nfunction extend (dest /*, ...source */) {\n  for (var i = 1; i < arguments.length; i++) {\n    for (var key in arguments[i]) {\n      dest[key] = arguments[i][key];\n    }\n  }\n\n  return dest;\n}\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],9:[function(require,module,exports){
+},{"hbsfy/runtime":55}],9:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "node_modules\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],10:[function(require,module,exports){
+},{"hbsfy/runtime":55}],10:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -304,7 +304,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + " --save\n```\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],11:[function(require,module,exports){
+},{"hbsfy/runtime":55}],11:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -461,7 +461,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "\n\n### Custom Resources\n\nYou can make requests to a custom path in the API using the `#resource(path)` method.\n\n```javascript\nclient.resource('/example/path').get();\n```\n\n## License\n\nApache 2.0\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],12:[function(require,module,exports){
+},{"hbsfy/runtime":55}],12:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -493,7 +493,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "});\n";
 },"usePartial":true,"useData":true});
 
-},{"hbsfy/runtime":41}],13:[function(require,module,exports){
+},{"hbsfy/runtime":55}],13:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -510,7 +510,956 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "\"popsicle\": \"^0.3.6\"\n  }\n}\n";
 },"useData":true});
 
-},{"hbsfy/runtime":41}],14:[function(require,module,exports){
+},{"hbsfy/runtime":55}],14:[function(require,module,exports){
+/**
+ * Stringify a resource into a request snippet.
+ *
+ * @param  {Object} resource
+ * @return {String}
+ */
+function lalala(resource) {
+    if (resource.key===undefined) {
+	return '';
+    }
+    var context = this;
+    var arr=[];
+    for (var k in resource){
+	arr.push(k);
+    }
+    var relUri = resource.relativeUri;
+    var uriParameters = resource.uriParameters;
+    for (var n=0; n<uriParameters.length; n++) {
+	var val = uriParameters[n];
+	relUri=relUri.replace('{'+n+'}',
+			      '{'+val.displayName+'}');
+    }
+    var uri = lalala(resource.parent);
+    return uri+relUri;
+};
+module.exports = function (resource) {
+    var context = this;
+    var uri = lalala(resource);
+    uri=uri.replace(/\//g,'_');
+    uri=uri.replace(/-/g,'_');
+    uri=uri.replace(/{/g,'_');
+    uri=uri.replace(/}/g,'_');
+    return uri;
+};
+
+},{}],15:[function(require,module,exports){
+/**
+ * Stringify a resource into a request snippet.
+ *
+ * @param  {Object} resource
+ * @return {String}
+ */
+function lalala(resource) {
+    if (resource.key===undefined) {
+	return '';
+    }
+    var context = this;
+    var arr=[];
+    for (var k in resource){
+	arr.push(k);
+    }
+    var relUri = resource.relativeUri;
+    var uriParameters = resource.uriParameters;
+    for (var n=0; n<uriParameters.length; n++) {
+	var val = uriParameters[n];
+	relUri=relUri.replace('{'+n+'}',
+			      '{'+val.displayName+'}');
+    }
+    var uri = lalala(resource.parent);
+    return uri+relUri;
+};
+module.exports = function (resource) {
+    var context = this;
+    var uri = lalala(resource);
+    return uri;
+};
+
+},{}],16:[function(require,module,exports){
+/**
+ * Stringify a resource into a request snippet.
+ *
+ * @param  {Object} resource
+ * @return {String}
+ */
+function extend(arr,arr2){
+    if (arr2===undefined) return;
+    for (var i=0; i<arr2.length; i++)
+	arr.push(arr2[i]);
+}
+function getUriList(resource) {
+    var ret = [];
+    extend(ret, resource.uriParameters);
+    if (resource.parent) {
+	extend(ret, getUriList(resource.parent));
+    }
+    return ret;
+}
+module.exports = function(resource){
+    this.resource.uriList = getUriList(resource);
+};
+
+},{}],17:[function(require,module,exports){
+/**
+ * Stringify a resource into a request snippet.
+ *
+ * @param  {Object} resource
+ * @return {String}
+ */
+var xxfs = require("fs");
+function importJson(resource, filename, symbol) {
+    var x = this;
+    x = resource;
+    for (var k in this)
+	console.log("1:"+k);
+    console.log(symbol);
+    console.log("FN:"+filename);
+
+    function cb(err,data) {
+	console.log('---1');
+	console.log(data);
+
+    x[symbol] = data;
+    this[symbol] = data;
+	
+	console.log('---9');
+    }
+
+    var data = xxfs.readFileSync(filename,'ascii');
+
+    console.log(data);
+
+    for (var k in x)
+	console.log("2:"+k);
+
+    data = JSON.parse(data);
+
+    x[symbol] = data;
+    this[symbol] = data;
+    for (var k in x)
+	console.log("3:"+k);
+
+    return '';
+};
+module.exports = importJson;
+
+},{"fs":35}],18:[function(require,module,exports){
+var generator = require('../../lib/generator');
+
+/**
+ * Export a client generator instance.
+ *
+ * @type {Function}
+ */
+module.exports = generator({
+  templates: {
+    'rpc_requests.py'  : require('./templates/rpc_requests.py.hbs'),
+    'rpc_tornado.py'   : require('./templates/rpc_tornado.py.hbs'),
+    'rpc_urlfetch.py'  : require('./templates/rpc_tornado.py.hbs'),
+    'rpc_httplib2.py'  : require('./templates/rpc_tornado.py.hbs'),
+    'rpc_httplib.py'   : require('./templates/rpc_tornado.py.hbs'),
+    'rpc_geventhttpclient.py':
+      require('./templates/rpc_geventhttpclient.py.hbs'),
+    'rpc_gae.py'       : require('./templates/rpc_gae.py.hbs'),
+    'test.py'          : require('./templates/test.py.hbs'),
+    'server_mock.py'   : require('./templates/server_mock.py.hbs'),
+    'server_wsgi.py'   : require('./templates/server_wsgi.py.hbs'),
+    'server_tornado.py': require('./templates/server_tornado.py.hbs'),
+  },
+  format: {
+    variable: require('camel-case')
+  },
+  partials: {
+  },
+  helpers: {
+    stringify:         require('javascript-stringify'),
+    getUriList:        require('./helpers/getUriList'),
+    fullPath:          require('./helpers/fullPath'),
+    flatPath:          require('./helpers/flatPath'),
+    importJson:        require('./helpers/importJson'),
+  }
+});
+
+},{"../../lib/generator":33,"./helpers/flatPath":14,"./helpers/fullPath":15,"./helpers/getUriList":16,"./helpers/importJson":17,"./templates/rpc_gae.py.hbs":19,"./templates/rpc_geventhttpclient.py.hbs":20,"./templates/rpc_requests.py.hbs":21,"./templates/rpc_tornado.py.hbs":22,"./templates/server_mock.py.hbs":23,"./templates/server_tornado.py.hbs":24,"./templates/server_wsgi.py.hbs":25,"./templates/test.py.hbs":26,"camel-case":41,"javascript-stringify":59}],19:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return alias2((helpers.getUriList || (depth0 && depth0.getUriList) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
+    + "\n  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n    url=self.url_prefix+path\n"
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n      # httplib stuff\n      body = urllib.urlencode(form)\n      # end httplib stuff\n    else:\n      headers = {}\n      form = None\n      # httplib stuff\n      body = None\n      # end httplib stuff\n      pass\n    if 1:\n      # requests stuff\n      return requests."
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    elif 2:\n      # httplib2 stuff\n      h = httplib2.Http()\n      r = h.request(url+qstr,method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),\n        body=body, headers=headers)\n      r = c.getresponse()\n      return r\n      # end httplib2 stuff\n    elif 3:\n      # This should use some kind of Future.  Maybe pass in the constructor.\n      http_client.fetch(url+qstr, handle_request, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n    elif 4:\n      import urlfetch\n      return urlfetch.request(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), data=body)\n    elif 5:\n      # google app engine sync\n      from google.appengine.api.urlfetch import fetch\n      return fetch(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    elif 6:\n      # google app engine async\n      from google.appengine.api.urlfetch import create_rpc, make_fetch_call\n      rpc = create_rpc()\n      return make_fetch_call(rpc, url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    else:\n      # httplib stuff\n      import urllib2\n      req = urllib2.Request(self.url_prefix)\n      if req.get_type()=='https':\n        h = httplib.HTTPSConnection(host=req.host(), port=req.port() )\n      else:\n        h = httplib.HTTPConnection( host=req.host(), port=req.port() )\n        pass\n      whole_path = self.path_prefix+path+qstr\n      r = h.request('"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),whole_path,body,headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n";
+},"2":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"4":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"6":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"8":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    url=url.replace('{%s}'%'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"10":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n      pass\n";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n      if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n        form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n        pass\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return "qq\n\n"
+    + alias2((helpers.importJson || (depth0 && depth0.importJson) || alias1).call(depth0,depth0,"languages/python/qwert.json","qwert",{"name":"importJson","hash":{},"data":data}))
+    + "\n\nww\n\n"
+    + alias2((helpers.keys || (depth0 && depth0.keys) || alias1).call(depth0,depth0,{"name":"keys","hash":{},"data":data}))
+    + "\n\n===\n\n"
+    + alias2(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"id","hash":{},"data":data}) : helper)))
+    + " == "
+    + alias2(((helper = (helper = helpers.qwert || (depth0 != null ? depth0.qwert : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"qwert","hash":{},"data":data}) : helper)))
+    + " == "
+    + alias2(((helper = (helper = helpers.baseUri || (depth0 != null ? depth0.baseUri : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"baseUri","hash":{},"data":data}) : helper)))
+    + "\n\nee\n\n"
+    + alias2(((helper = (helper = helpers.qwert || (depth0 != null ? depth0.qwert : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"qwert","hash":{},"data":data}) : helper)))
+    + "\n\nrr\n\n"
+    + alias2(this.lambda(((stack1 = (depth0 != null ? depth0.qwert : depth0)) != null ? stack1.q : stack1), depth0))
+    + "\n\n"
+    + alias2((helpers.stringify || (depth0 && depth0.stringify) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.qwert : depth0)) != null ? stack1.w : stack1),{"name":"stringify","hash":{},"data":data}))
+    + "\n\ntt\n\nimport gevent.monkey;gevent.monkey.patch_all()\nimport geventhttpclient.httplib;geventhttpclient.httplib.patch()\nfrom geventhttpclient.httplib import HTTPConnection,HTTPSConnection\nimport requests\nimport urllib,urllib2,httplib\nimport urllib,httplib2\n\nimport os,json\n\ndef handle_request(response):\n    '''callback needed when a response arrive'''\n    if response.error:\n        print \"Error:\", response.error\n    else:\n        print 'called'\n        print response.body\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  #tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class LL_API\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],20:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return alias2((helpers.getUriList || (depth0 && depth0.getUriList) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
+    + "\n  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n    url=self.url_prefix+path\n"
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n      # httplib stuff\n      body = urllib.urlencode(form)\n      # end httplib stuff\n    else:\n      headers = {}\n      form = None\n      # httplib stuff\n      body = None\n      # end httplib stuff\n      pass\n    if 1:\n      # requests stuff\n      return requests."
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    elif 2:\n      # httplib2 stuff\n      h = httplib2.Http()\n      r = h.request(url+qstr,method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),\n        body=body, headers=headers)\n      r = c.getresponse()\n      return r\n      # end httplib2 stuff\n    elif 3:\n      # This should use some kind of Future.  Maybe pass in the constructor.\n      http_client.fetch(url+qstr, handle_request, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n    elif 4:\n      import urlfetch\n      return urlfetch.request(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), data=body)\n    elif 5:\n      # google app engine sync\n      from google.appengine.api.urlfetch import fetch\n      return fetch(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    elif 6:\n      # google app engine async\n      from google.appengine.api.urlfetch import create_rpc, make_fetch_call\n      rpc = create_rpc()\n      return make_fetch_call(rpc, url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    else:\n      # httplib stuff\n      import urllib2\n      req = urllib2.Request(self.url_prefix)\n      if req.get_type()=='https':\n        h = httplib.HTTPSConnection(host=req.host(), port=req.port() )\n      else:\n        h = httplib.HTTPConnection( host=req.host(), port=req.port() )\n        pass\n      whole_path = self.path_prefix+path+qstr\n      r = h.request('"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),whole_path,body,headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n";
+},"2":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"4":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"6":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"8":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    url=url.replace('{%s}'%'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"10":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n      pass\n";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n      if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n        form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n        pass\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "import gevent.monkey;gevent.monkey.patch_all()\nimport geventhttpclient.httplib;geventhttpclient.httplib.patch()\nfrom geventhttpclient.httplib import HTTPConnection,HTTPSConnection\nimport requests\nimport urllib,urllib2,httplib\nimport urllib,httplib2\n\nimport os,json\n\ndef handle_request(response):\n    '''callback needed when a response arrive'''\n    if response.error:\n        print \"Error:\", response.error\n    else:\n        print 'called'\n        print response.body\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  #tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class LL_API\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],21:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return "  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n  "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriParameters : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " #uri\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " # query\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " # form\n  ):\n    \"\"\"\n  "
+    + ((stack1 = ((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n    \"\"\"\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n\n    uri=self.prefixUri+path\n"
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n    ###\n    #  put field validation here\n    ###\n"
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    ###\n    #  end field validation here\n    ###\n\n    access_token = self.auth_query.get('access_token')\n\n    query={}\n    if access_token:\n      query['access_token'] = access_token\n      pass\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(17, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n\n    body = None\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put','patch'):\n       form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n       body = urllib.urlencode(form)\n       pass\n    print \"GO\", repr(uri+qstr)\n    return requests."
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(uri+qstr,data=body)\n\n";
+},"2":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"4":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"6":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"8":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    uri=uri.replace('{'+'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "'+'}',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"10":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    print \"uCHECK "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "\"\n    if "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " is None:\n      if bool("
+    + alias3(((helper = (helper = helpers.required || (depth0 != null ? depth0.required : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"required","hash":{},"data":data}) : helper)))
+    + "):\n        raise \"MISSING\"\n    else:\n      if wrongType("
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",'"
+    + alias3(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"type","hash":{},"data":data}) : helper)))
+    + "'):\n        raise \"WRONGTYPE\"\n";
+},"12":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    print \"qCHECK "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "\"\n    if "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " is None:\n      if bool("
+    + alias3(((helper = (helper = helpers.required || (depth0 != null ? depth0.required : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"required","hash":{},"data":data}) : helper)))
+    + "):\n        raise \"MISSING\"\n    else:\n      if wrongType("
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",'"
+    + alias3(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"type","hash":{},"data":data}) : helper)))
+    + "'):\n        raise \"WRONGTYPE\"\n";
+},"14":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(15, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    print \"fCHECK "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "\"\n    if "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " is None:\n      if bool("
+    + alias3(((helper = (helper = helpers.required || (depth0 != null ? depth0.required : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"required","hash":{},"data":data}) : helper)))
+    + "):\n        raise \"MISSING\"\n    else:\n      if wrongType("
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",'"
+    + alias3(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"type","hash":{},"data":data}) : helper)))
+    + "'):\n        raise \"WRONGTYPE\"\n";
+},"17":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n";
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"20":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n       if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n         form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "#!/usr/bin/python\n\nimport requests,json\n\ndef wrongType(var,typ):\n    print \"wrongType\"+repr((var,typ))\n    \n    try:\n        if typ=='integer':\n            int(var)\n        elif typ=='number':\n            float(var)\n            pass\n        return False\n    except:\n        return True\n    pass\n\ntrue,false=True,False\n\nclass RequestsAPI(object):\n  def __init__(self,auth_query={},access_token=None):\n    self.auth_query=dict(auth_query)\n    self.baseUri='"
+    + alias3(((helper = (helper = helpers.baseUri || (depth0 != null ? depth0.baseUri : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"baseUri","hash":{},"data":data}) : helper)))
+    + "'\n    self.version='"
+    + alias3(((helper = (helper = helpers.version || (depth0 != null ? depth0.version : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"version","hash":{},"data":data}) : helper)))
+    + "'\n    self.prefixUri=self.baseUri.replace('{version}',self.version)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\ndef main():\n    access_token='185651424.06e610f.3bd9116b82b2448395ca411d2e13bc39'\n    print \"main1\"\n    api = RequestsAPI(access_token=access_token)\n    print \"main2\"\n    api.rpc_media_popular_get()\n    print \"main3\"\n    pass\n\nif __name__=='__main__': main()\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],22:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return alias2((helpers.getUriList || (depth0 && depth0.getUriList) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
+    + "\n  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n    url=self.url_prefix+path\n"
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n      body = urllib.urlencode(form)\n    else:\n      headers = {}\n      form = None\n      body = None\n      pass\n\n    # This should use some kind of Future.  Maybe pass in the constructor.\n    return http_client.fetch(url+qstr, handle_request,\n        method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n\n";
+},"2":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"4":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"6":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"8":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    url=url.replace('{%s}'%'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"10":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n      pass\n";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n      if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n        form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n        pass\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "import os,json,urllib\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class LL_API\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],23:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    return this.escapeExpression((helpers.getUriList || (depth0 && depth0.getUriList) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}));
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    #  put logic here\n    ###\n"
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    ###\n    return ['hello world']\n\n";
+},"4":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"6":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"8":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"10":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if bool("
+    + alias3(((helper = (helper = helpers.required || (depth0 != null ? depth0.required : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"required","hash":{},"data":data}) : helper)))
+    + ") and "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " is None:\n      raise \"MISSING\"\n    if wrongType("
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",'"
+    + alias3(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"type","hash":{},"data":data}) : helper)))
+    + "'):\n      raise \"WRONGTYPE\"\n";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n\n"
+    + this.escapeExpression((helpers.importJson || (depth0 && depth0.importJson) || helpers.helperMissing).call(depth0,depth0,"languages/python/qwert.json","qwert",{"name":"importJson","hash":{},"data":data}))
+    + "\n\ndef wrongType(var,typ):\n    try:\n        if typ=='integer':\n            int(var)\n        elif typ=='number':\n            float(var)\n            pass\n        return False\n    except:\n        return True\n    pass\n\ntrue,false=True,False\n\nclass Mock_API:\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class Mock_API\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],24:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    return this.escapeExpression((helpers.getUriList || (depth0 && depth0.getUriList) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}));
+},"3":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return alias2((helpers.getUriList || (depth0 && depth0.getUriList) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}))
+    + "\nclass rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_handler(tornado.web.RequestHandler):\n  def "
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self):\n    pass\n  pass\n";
+},"5":function(depth0,helpers,partials,data) {
+    var alias1=helpers.helperMissing, alias2=this.escapeExpression;
+
+  return "    ( r'"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "' ,rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_handler),\n";
+},"7":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return "  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n    url=self.url_prefix+path\n"
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n      # httplib stuff\n      body = urllib.urlencode(form)\n      # end httplib stuff\n    else:\n      headers = {}\n      form = None\n      # httplib stuff\n      body = None\n      # end httplib stuff\n      pass\n    if 1:\n      # requests stuff\n      return requests."
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    elif 2:\n      # httplib2 stuff\n      h = httplib2.Http()\n      r = h.request(url+qstr,method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),\n        body=body, headers=headers)\n      r = c.getresponse()\n      return r\n      # end httplib2 stuff\n    elif 3:\n      # This should use some kind of Future.  Maybe pass in the constructor.\n      http_client.fetch(url+qstr, handle_request, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n    elif 4:\n      import urlfetch\n      return urlfetch.request(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), data=body)\n    elif 5:\n      # google app engine sync\n      from google.appengine.api.urlfetch import fetch\n      return fetch(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    elif 6:\n      # google app engine async\n      from google.appengine.api.urlfetch import create_rpc, make_fetch_call\n      rpc = create_rpc()\n      return make_fetch_call(rpc, url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    else:\n      # httplib stuff\n      import urllib2\n      req = urllib2.Request(self.url_prefix)\n      if req.get_type()=='https':\n        h = httplib.HTTPSConnection(host=req.host(), port=req.port() )\n      else:\n        h = httplib.HTTPConnection( host=req.host(), port=req.port() )\n        pass\n      whole_path = self.path_prefix+path+qstr\n      r = h.request('"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),whole_path,body,headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n";
+},"8":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"10":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"14":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    url=url.replace('{%s}'%'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"16":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n      pass\n";
+},"18":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"19":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n      if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n        form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n        pass\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n\nimport tornado.ioloop\nimport tornado.web\n\nclass MainHandler(tornado.web.RequestHandler):\n    def get(self):\n        self.write(\"Hello, world\")\n\n  "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\napplication = tornado.web.Application([\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "])\n\nif __name__ == \"__main__\":\n    application.listen(8888)\n    tornado.ioloop.IOLoop.instance().start()\n\n#######\n\nimport gevent.monkey;gevent.monkey.patch_all()\nimport geventhttpclient.httplib;geventhttpclient.httplib.patch()\nfrom geventhttpclient.httplib import HTTPConnection,HTTPSConnection\nimport requests\nimport urllib,urllib2,httplib\nimport urllib,httplib2\n\nimport os,json\n\ndef handle_request(response):\n    '''callback needed when a response arrive'''\n    if response.error:\n        print \"Error:\", response.error\n    else:\n        print 'called'\n        print response.body\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  #tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(7, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class LL_API\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],25:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+    return this.escapeExpression((helpers.getUriList || (depth0 && depth0.getUriList) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"getUriList","hash":{},"data":data}));
+},"3":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    elif (environ['REQUEST_METHOD']=='"
+    + alias3(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper()  and\n            match(environ['PATH_INFO'],r'"
+    + alias3((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "')):\n\n"
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        return rpc"
+    + alias3((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias3(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(\n            "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n            "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n            "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(12, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n        )\n";
+},"4":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "        "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " = 1\n        if bool("
+    + alias3(((helper = (helper = helpers.required || (depth0 != null ? depth0.required : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"required","hash":{},"data":data}) : helper)))
+    + ") and "
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + " is None:\n            raise \"MISSING\"	\n        if wrongType("
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",'"
+    + alias3(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"type","hash":{},"data":data}) : helper)))
+    + "'):\n            raise \"WRONGTYPE\"\n";
+},"6":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"8":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ",";
+},"10":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + ",";
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(10, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"14":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
+
+  return "  def rpc"
+    + alias2((helpers.flatPath || (depth0 && depth0.flatPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"flatPath","hash":{},"data":data}))
+    + "_"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(self,\n    "
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1),{"name":"each","hash":{},"fn":this.program(15, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#uri\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(17, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#query\n    "
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "#form\n    ):\n    ###\n    path='"
+    + alias2((helpers.fullPath || (depth0 && depth0.fullPath) || alias1).call(depth0,(depth0 != null ? depth0.resource : depth0),{"name":"fullPath","hash":{},"data":data}))
+    + "'\n    url=self.url_prefix+path\n"
+    + ((stack1 = helpers.blockHelperMissing.call(depth0,this.lambda(((stack1 = (depth0 != null ? depth0.resource : depth0)) != null ? stack1.uriList : stack1), depth0),{"name":"resource.uriList","hash":{},"fn":this.program(21, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    query={}\n    [ query.__setitem__(k,v) for k,v in self.auth_query.iteritems() if False ]\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.queryParameters : depth0),{"name":"each","hash":{},"fn":this.program(23, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    url=self.url_prefix\n    qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])\n    if qstr: qstr='?'+qstr\n    if '"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "' in ('post','put'):\n      headers = {\"Content-type\": \"application/x-www-form-urlencoded\",\n                 \"Accept\": \"text/plain\"}\n      form={}\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.body : depth0),{"name":"each","hash":{},"fn":this.program(25, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n      # httplib stuff\n      body = urllib.urlencode(form)\n      # end httplib stuff\n    else:\n      headers = {}\n      form = None\n      # httplib stuff\n      body = None\n      # end httplib stuff\n      pass\n    if 1:\n      # requests stuff\n      return requests."
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "(url+qstr,data=body,headers=headers)\n      # end requests stuff\n    elif 2:\n      # httplib2 stuff\n      h = httplib2.Http()\n      r = h.request(url+qstr,method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),\n        body=body, headers=headers)\n      r = c.getresponse()\n      return r\n      # end httplib2 stuff\n    elif 3:\n      # This should use some kind of Future.  Maybe pass in the constructor.\n      http_client.fetch(url+qstr, handle_request, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),body=body)\n    elif 4:\n      import urlfetch\n      return urlfetch.request(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), data=body)\n    elif 5:\n      # google app engine sync\n      from google.appengine.api.urlfetch import fetch\n      return fetch(url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    elif 6:\n      # google app engine async\n      from google.appengine.api.urlfetch import create_rpc, make_fetch_call\n      rpc = create_rpc()\n      return make_fetch_call(rpc, url+qstr, method='"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(), payload=body)\n    else:\n      # httplib stuff\n      import urllib2\n      req = urllib2.Request(self.url_prefix)\n      if req.get_type()=='https':\n        h = httplib.HTTPSConnection(host=req.host(), port=req.port() )\n      else:\n        h = httplib.HTTPConnection( host=req.host(), port=req.port() )\n        pass\n      whole_path = self.path_prefix+path+qstr\n      r = h.request('"
+    + alias2(((helper = (helper = helpers.method || (depth0 != null ? depth0.method : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"method","hash":{},"data":data}) : helper)))
+    + "'.upper(),whole_path,body,headers)\n      r = c.getresponse()\n      return r\n      # end httplib stuff\n";
+},"15":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"17":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return this.escapeExpression(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "=None,";
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(17, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"21":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    url=url.replace('{%s}'%'"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + "',"
+    + alias3(((helper = (helper = helpers.displayName || (depth0 != null ? depth0.displayName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"displayName","hash":{},"data":data}) : helper)))
+    + ")\n";
+},"23":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "    if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n      query['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n      pass\n";
+},"25":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.formParameters : depth0),{"name":"each","hash":{},"fn":this.program(26, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"26":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "\n      if "
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + " is not None:\n        form['"
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "']="
+    + alias3(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\n        pass\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n\ndef match(x,y):\n    return x is y\n\ndef app2(environ, start_response):\n    start_response(\"200 OK\", [])\n    if False:\n      pass\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    return ['OK']\n])\n\nif __name__ == '__main__':\n    from wsgiref.simple_server import make_server\n    srv = make_server('localhost', 8080, app)\n    srv.serve_forever()\n\n#######\n\nimport gevent.monkey;gevent.monkey.patch_all()\nimport geventhttpclient.httplib;geventhttpclient.httplib.patch()\nfrom geventhttpclient.httplib import HTTPConnection,HTTPSConnection\nimport requests\nimport urllib,urllib2,httplib\nimport urllib,httplib2\n\nimport os,json\n\ndef handle_request(response):\n    '''callback needed when a response arrive'''\n    if response.error:\n        print \"Error:\", response.error\n    else:\n        print 'called'\n        print response.body\n\nif __name__=='__main__':\n  import tornado.ioloop\n  from tornado.httpclient import AsyncHTTPClient\n  http_client = AsyncHTTPClient() # we initialize our http client instance\n  #tornado.ioloop.IOLoop.instance().start() # start the tornado ioloop to\n                    # listen for events\n\nclass LL_API:\n  def __init__(self,url_prefix,auth_query={},access_token=None):\n    self.url_prefix = url_prefix\n    self.auth_query=dict(auth_query)\n    if access_token:\n      self.auth_query['access_token'] = access_token\n      pass\n    pass\n  #each allMethods\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.allMethods : depth0),{"name":"each","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "  pass # end class LL_API\n#EOF\n";
+},"useData":true});
+
+},{"hbsfy/runtime":55}],26:[function(require,module,exports){
+arguments[4][19][0].apply(exports,arguments)
+},{"dup":19,"hbsfy/runtime":55}],27:[function(require,module,exports){
 var extend             = require('extend');
 var sanitizeUri        = require('./uri');
 var sanitizeSecurity   = require('./security');
@@ -645,7 +1594,7 @@ module.exports = function (ast, spec) {
   return context;
 };
 
-},{"./parameters":16,"./resources":17,"./security":18,"./uri":19,"extend":33,"methods":47}],15:[function(require,module,exports){
+},{"./parameters":29,"./resources":30,"./security":31,"./uri":32,"extend":47,"methods":61}],28:[function(require,module,exports){
 var pick               = require('object.pick');
 var sanitizeParameters = require('./parameters');
 
@@ -705,7 +1654,7 @@ module.exports = function (methods, resource, spec) {
   return obj;
 };
 
-},{"./parameters":16,"object.pick":48}],16:[function(require,module,exports){
+},{"./parameters":29,"object.pick":62}],29:[function(require,module,exports){
 var pick = require('object.pick');
 
 /**
@@ -761,7 +1710,7 @@ module.exports = function (parameters) {
   return obj;
 };
 
-},{"object.pick":48}],17:[function(require,module,exports){
+},{"object.pick":62}],30:[function(require,module,exports){
 var sanitizeUri        = require('./uri');
 var sanitizeMethods    = require('./methods');
 var sanitizeParameters = require('./parameters');
@@ -939,7 +1888,7 @@ module.exports = function (resources, spec) {
   return obj;
 };
 
-},{"./methods":15,"./parameters":16,"./uri":19}],18:[function(require,module,exports){
+},{"./methods":28,"./parameters":29,"./uri":32}],31:[function(require,module,exports){
 /**
  * Sanitize resources into nested object form.
  *
@@ -964,7 +1913,7 @@ module.exports = function (securitySchemes) {
   return obj;
 };
 
-},{}],19:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /**
  * Sanitize all uris.
  *
@@ -976,7 +1925,7 @@ module.exports = function (uri, spec) {
   return spec.format.uri(uri || '').replace(/\/+$/, '');
 };
 
-},{}],20:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 var extend        = require('extend');
 var helpers       = require('./helpers');
 var createContext = require('./context');
@@ -1052,7 +2001,7 @@ module.exports = function (spec) {
   };
 };
 
-},{"./context":14,"./helpers":21,"extend":33,"handlebars":22}],21:[function(require,module,exports){
+},{"./context":27,"./helpers":34,"extend":47,"handlebars":36}],34:[function(require,module,exports){
 var indent = require('indent-string');
 var trim   = String.prototype.trim;
 var hasOwn = Object.prototype.hasOwnProperty;
@@ -1250,9 +2199,11 @@ exports.join = function (array, value) {
   return Array.isArray(array) ? array.join(value) : array;
 };
 
-},{"camel-case":27,"constant-case":32,"indent-string":42,"lower-case":46,"param-case":53,"pascal-case":55,"snake-case":60,"upper-case":61}],22:[function(require,module,exports){
+},{"camel-case":41,"constant-case":46,"indent-string":56,"lower-case":60,"param-case":67,"pascal-case":69,"snake-case":74,"upper-case":75}],35:[function(require,module,exports){
 
-},{}],23:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
+arguments[4][35][0].apply(exports,arguments)
+},{"dup":35}],37:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -1319,41 +2270,36 @@ Buffer.TYPED_ARRAY_SUPPORT = (function () {
  * By augmenting the instances, we can avoid modifying the `Uint8Array`
  * prototype.
  */
-function Buffer (subject, encoding, noZero) {
-  if (!(this instanceof Buffer))
-    return new Buffer(subject, encoding, noZero)
+function Buffer (subject, encoding) {
+  var self = this
+  if (!(self instanceof Buffer)) return new Buffer(subject, encoding)
 
   var type = typeof subject
-
-  // Find the length
   var length
+
   if (type === 'number') {
     length = +subject
   } else if (type === 'string') {
     length = Buffer.byteLength(subject, encoding)
-  } else if (type === 'object' && subject !== null) { // assume object is array-like
-    if (subject.type === 'Buffer' && isArray(subject.data))
-      subject = subject.data
+  } else if (type === 'object' && subject !== null) {
+    // assume object is array-like
+    if (subject.type === 'Buffer' && isArray(subject.data)) subject = subject.data
     length = +subject.length
   } else {
     throw new TypeError('must start with number, buffer, array or string')
   }
 
-  if (length > kMaxLength)
-    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
-      'size: 0x' + kMaxLength.toString(16) + ' bytes')
+  if (length > kMaxLength) {
+    throw new RangeError('Attempt to allocate Buffer larger than maximum size: 0x' +
+      kMaxLength.toString(16) + ' bytes')
+  }
 
-  if (length < 0)
-    length = 0
-  else
-    length >>>= 0 // Coerce to uint32.
+  if (length < 0) length = 0
+  else length >>>= 0 // coerce to uint32
 
-  var self = this
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     // Preferred: Return an augmented `Uint8Array` instance for best performance
-    /*eslint-disable consistent-this */
-    self = Buffer._augment(new Uint8Array(length))
-    /*eslint-enable consistent-this */
+    self = Buffer._augment(new Uint8Array(length)) // eslint-disable-line consistent-this
   } else {
     // Fallback: Return THIS instance of Buffer (created by `new`)
     self.length = length
@@ -1367,42 +2313,43 @@ function Buffer (subject, encoding, noZero) {
   } else if (isArrayish(subject)) {
     // Treat array-ish objects as a byte array
     if (Buffer.isBuffer(subject)) {
-      for (i = 0; i < length; i++)
+      for (i = 0; i < length; i++) {
         self[i] = subject.readUInt8(i)
+      }
     } else {
-      for (i = 0; i < length; i++)
+      for (i = 0; i < length; i++) {
         self[i] = ((subject[i] % 256) + 256) % 256
+      }
     }
   } else if (type === 'string') {
     self.write(subject, 0, encoding)
-  } else if (type === 'number' && !Buffer.TYPED_ARRAY_SUPPORT && !noZero) {
+  } else if (type === 'number' && !Buffer.TYPED_ARRAY_SUPPORT) {
     for (i = 0; i < length; i++) {
       self[i] = 0
     }
   }
 
-  if (length > 0 && length <= Buffer.poolSize)
-    self.parent = rootParent
+  if (length > 0 && length <= Buffer.poolSize) self.parent = rootParent
 
   return self
 }
 
-function SlowBuffer (subject, encoding, noZero) {
-  if (!(this instanceof SlowBuffer))
-    return new SlowBuffer(subject, encoding, noZero)
+function SlowBuffer (subject, encoding) {
+  if (!(this instanceof SlowBuffer)) return new SlowBuffer(subject, encoding)
 
-  var buf = new Buffer(subject, encoding, noZero)
+  var buf = new Buffer(subject, encoding)
   delete buf.parent
   return buf
 }
 
-Buffer.isBuffer = function (b) {
+Buffer.isBuffer = function isBuffer (b) {
   return !!(b != null && b._isBuffer)
 }
 
-Buffer.compare = function (a, b) {
-  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b))
+Buffer.compare = function compare (a, b) {
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
     throw new TypeError('Arguments must be Buffers')
+  }
 
   if (a === b) return 0
 
@@ -1418,7 +2365,7 @@ Buffer.compare = function (a, b) {
   return 0
 }
 
-Buffer.isEncoding = function (encoding) {
+Buffer.isEncoding = function isEncoding (encoding) {
   switch (String(encoding).toLowerCase()) {
     case 'hex':
     case 'utf8':
@@ -1437,8 +2384,8 @@ Buffer.isEncoding = function (encoding) {
   }
 }
 
-Buffer.concat = function (list, totalLength) {
-  if (!isArray(list)) throw new TypeError('Usage: Buffer.concat(list[, length])')
+Buffer.concat = function concat (list, totalLength) {
+  if (!isArray(list)) throw new TypeError('list argument must be an Array of Buffers.')
 
   if (list.length === 0) {
     return new Buffer(0)
@@ -1464,7 +2411,7 @@ Buffer.concat = function (list, totalLength) {
   return buf
 }
 
-Buffer.byteLength = function (str, encoding) {
+Buffer.byteLength = function byteLength (str, encoding) {
   var ret
   str = str + ''
   switch (encoding || 'utf8') {
@@ -1500,7 +2447,7 @@ Buffer.prototype.length = undefined
 Buffer.prototype.parent = undefined
 
 // toString(encoding, start=0, end=buffer.length)
-Buffer.prototype.toString = function (encoding, start, end) {
+Buffer.prototype.toString = function toString (encoding, start, end) {
   var loweredCase = false
 
   start = start >>> 0
@@ -1536,45 +2483,84 @@ Buffer.prototype.toString = function (encoding, start, end) {
         return utf16leSlice(this, start, end)
 
       default:
-        if (loweredCase)
-          throw new TypeError('Unknown encoding: ' + encoding)
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
         encoding = (encoding + '').toLowerCase()
         loweredCase = true
     }
   }
 }
 
-Buffer.prototype.equals = function (b) {
+Buffer.prototype.equals = function equals (b) {
   if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
   if (this === b) return true
   return Buffer.compare(this, b) === 0
 }
 
-Buffer.prototype.inspect = function () {
+Buffer.prototype.inspect = function inspect () {
   var str = ''
   var max = exports.INSPECT_MAX_BYTES
   if (this.length > 0) {
     str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
-    if (this.length > max)
-      str += ' ... '
+    if (this.length > max) str += ' ... '
   }
   return '<Buffer ' + str + '>'
 }
 
-Buffer.prototype.compare = function (b) {
+Buffer.prototype.compare = function compare (b) {
   if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
   if (this === b) return 0
   return Buffer.compare(this, b)
 }
 
+Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
+  if (byteOffset > 0x7fffffff) byteOffset = 0x7fffffff
+  else if (byteOffset < -0x80000000) byteOffset = -0x80000000
+  byteOffset >>= 0
+
+  if (this.length === 0) return -1
+  if (byteOffset >= this.length) return -1
+
+  // Negative offsets start from the end of the buffer
+  if (byteOffset < 0) byteOffset = Math.max(this.length + byteOffset, 0)
+
+  if (typeof val === 'string') {
+    if (val.length === 0) return -1 // special case: looking for empty string always fails
+    return String.prototype.indexOf.call(this, val, byteOffset)
+  }
+  if (Buffer.isBuffer(val)) {
+    return arrayIndexOf(this, val, byteOffset)
+  }
+  if (typeof val === 'number') {
+    if (Buffer.TYPED_ARRAY_SUPPORT && Uint8Array.prototype.indexOf === 'function') {
+      return Uint8Array.prototype.indexOf.call(this, val, byteOffset)
+    }
+    return arrayIndexOf(this, [ val ], byteOffset)
+  }
+
+  function arrayIndexOf (arr, val, byteOffset) {
+    var foundIndex = -1
+    for (var i = 0; byteOffset + i < arr.length; i++) {
+      if (arr[byteOffset + i] === val[foundIndex === -1 ? 0 : i - foundIndex]) {
+        if (foundIndex === -1) foundIndex = i
+        if (i - foundIndex + 1 === val.length) return byteOffset + foundIndex
+      } else {
+        foundIndex = -1
+      }
+    }
+    return -1
+  }
+
+  throw new TypeError('val must be string, number or Buffer')
+}
+
 // `get` will be removed in Node 0.13+
-Buffer.prototype.get = function (offset) {
+Buffer.prototype.get = function get (offset) {
   console.log('.get() is deprecated. Access using array indexes instead.')
   return this.readUInt8(offset)
 }
 
 // `set` will be removed in Node 0.13+
-Buffer.prototype.set = function (v, offset) {
+Buffer.prototype.set = function set (v, offset) {
   console.log('.set() is deprecated. Access using array indexes instead.')
   return this.writeUInt8(v, offset)
 }
@@ -1599,9 +2585,9 @@ function hexWrite (buf, string, offset, length) {
     length = strLen / 2
   }
   for (var i = 0; i < length; i++) {
-    var byte = parseInt(string.substr(i * 2, 2), 16)
-    if (isNaN(byte)) throw new Error('Invalid hex string')
-    buf[offset + i] = byte
+    var parsed = parseInt(string.substr(i * 2, 2), 16)
+    if (isNaN(parsed)) throw new Error('Invalid hex string')
+    buf[offset + i] = parsed
   }
   return i
 }
@@ -1630,7 +2616,7 @@ function utf16leWrite (buf, string, offset, length) {
   return charsWritten
 }
 
-Buffer.prototype.write = function (string, offset, length, encoding) {
+Buffer.prototype.write = function write (string, offset, length, encoding) {
   // Support both (string, offset, length, encoding)
   // and the legacy (string, encoding, offset, length)
   if (isFinite(offset)) {
@@ -1647,8 +2633,9 @@ Buffer.prototype.write = function (string, offset, length, encoding) {
 
   offset = Number(offset) || 0
 
-  if (length < 0 || offset < 0 || offset > this.length)
+  if (length < 0 || offset < 0 || offset > this.length) {
     throw new RangeError('attempt to write outside buffer bounds')
+  }
 
   var remaining = this.length - offset
   if (!length) {
@@ -1691,7 +2678,7 @@ Buffer.prototype.write = function (string, offset, length, encoding) {
   return ret
 }
 
-Buffer.prototype.toJSON = function () {
+Buffer.prototype.toJSON = function toJSON () {
   return {
     type: 'Buffer',
     data: Array.prototype.slice.call(this._arr || this, 0)
@@ -1765,43 +2752,39 @@ function utf16leSlice (buf, start, end) {
   return res
 }
 
-Buffer.prototype.slice = function (start, end) {
+Buffer.prototype.slice = function slice (start, end) {
   var len = this.length
   start = ~~start
   end = end === undefined ? len : ~~end
 
   if (start < 0) {
     start += len
-    if (start < 0)
-      start = 0
+    if (start < 0) start = 0
   } else if (start > len) {
     start = len
   }
 
   if (end < 0) {
     end += len
-    if (end < 0)
-      end = 0
+    if (end < 0) end = 0
   } else if (end > len) {
     end = len
   }
 
-  if (end < start)
-    end = start
+  if (end < start) end = start
 
   var newBuf
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     newBuf = Buffer._augment(this.subarray(start, end))
   } else {
     var sliceLen = end - start
-    newBuf = new Buffer(sliceLen, undefined, true)
+    newBuf = new Buffer(sliceLen, undefined)
     for (var i = 0; i < sliceLen; i++) {
       newBuf[i] = this[i + start]
     }
   }
 
-  if (newBuf.length)
-    newBuf.parent = this.parent || this
+  if (newBuf.length) newBuf.parent = this.parent || this
 
   return newBuf
 }
@@ -1810,62 +2793,58 @@ Buffer.prototype.slice = function (start, end) {
  * Need to make sure that buffer isn't trying to write out of bounds.
  */
 function checkOffset (offset, ext, length) {
-  if ((offset % 1) !== 0 || offset < 0)
-    throw new RangeError('offset is not uint')
-  if (offset + ext > length)
-    throw new RangeError('Trying to access beyond buffer length')
+  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
+  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
 }
 
-Buffer.prototype.readUIntLE = function (offset, byteLength, noAssert) {
+Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var val = this[offset]
   var mul = 1
   var i = 0
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     val += this[offset + i] * mul
+  }
 
   return val
 }
 
-Buffer.prototype.readUIntBE = function (offset, byteLength, noAssert) {
+Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
+  if (!noAssert) {
     checkOffset(offset, byteLength, this.length)
+  }
 
   var val = this[offset + --byteLength]
   var mul = 1
-  while (byteLength > 0 && (mul *= 0x100))
+  while (byteLength > 0 && (mul *= 0x100)) {
     val += this[offset + --byteLength] * mul
+  }
 
   return val
 }
 
-Buffer.prototype.readUInt8 = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 1, this.length)
+Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
   return this[offset]
 }
 
-Buffer.prototype.readUInt16LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   return this[offset] | (this[offset + 1] << 8)
 }
 
-Buffer.prototype.readUInt16BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   return (this[offset] << 8) | this[offset + 1]
 }
 
-Buffer.prototype.readUInt32LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return ((this[offset]) |
       (this[offset + 1] << 8) |
@@ -1873,117 +2852,104 @@ Buffer.prototype.readUInt32LE = function (offset, noAssert) {
       (this[offset + 3] * 0x1000000)
 }
 
-Buffer.prototype.readUInt32BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset] * 0x1000000) +
-      ((this[offset + 1] << 16) |
-      (this[offset + 2] << 8) |
-      this[offset + 3])
+    ((this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    this[offset + 3])
 }
 
-Buffer.prototype.readIntLE = function (offset, byteLength, noAssert) {
+Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var val = this[offset]
   var mul = 1
   var i = 0
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     val += this[offset + i] * mul
+  }
   mul *= 0x80
 
-  if (val >= mul)
-    val -= Math.pow(2, 8 * byteLength)
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
 
   return val
 }
 
-Buffer.prototype.readIntBE = function (offset, byteLength, noAssert) {
+Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var i = byteLength
   var mul = 1
   var val = this[offset + --i]
-  while (i > 0 && (mul *= 0x100))
+  while (i > 0 && (mul *= 0x100)) {
     val += this[offset + --i] * mul
+  }
   mul *= 0x80
 
-  if (val >= mul)
-    val -= Math.pow(2, 8 * byteLength)
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
 
   return val
 }
 
-Buffer.prototype.readInt8 = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 1, this.length)
-  if (!(this[offset] & 0x80))
-    return (this[offset])
+Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  if (!(this[offset] & 0x80)) return (this[offset])
   return ((0xff - this[offset] + 1) * -1)
 }
 
-Buffer.prototype.readInt16LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   var val = this[offset] | (this[offset + 1] << 8)
   return (val & 0x8000) ? val | 0xFFFF0000 : val
 }
 
-Buffer.prototype.readInt16BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   var val = this[offset + 1] | (this[offset] << 8)
   return (val & 0x8000) ? val | 0xFFFF0000 : val
 }
 
-Buffer.prototype.readInt32LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset]) |
-      (this[offset + 1] << 8) |
-      (this[offset + 2] << 16) |
-      (this[offset + 3] << 24)
+    (this[offset + 1] << 8) |
+    (this[offset + 2] << 16) |
+    (this[offset + 3] << 24)
 }
 
-Buffer.prototype.readInt32BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset] << 24) |
-      (this[offset + 1] << 16) |
-      (this[offset + 2] << 8) |
-      (this[offset + 3])
+    (this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    (this[offset + 3])
 }
 
-Buffer.prototype.readFloatLE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
   return ieee754.read(this, offset, true, 23, 4)
 }
 
-Buffer.prototype.readFloatBE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
   return ieee754.read(this, offset, false, 23, 4)
 }
 
-Buffer.prototype.readDoubleLE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 8, this.length)
+Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
   return ieee754.read(this, offset, true, 52, 8)
 }
 
-Buffer.prototype.readDoubleBE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 8, this.length)
+Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
   return ieee754.read(this, offset, false, 52, 8)
 }
 
@@ -1993,43 +2959,42 @@ function checkInt (buf, value, offset, ext, max, min) {
   if (offset + ext > buf.length) throw new RangeError('index out of range')
 }
 
-Buffer.prototype.writeUIntLE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
   value = +value
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
 
   var mul = 1
   var i = 0
   this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     this[offset + i] = (value / mul) >>> 0 & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeUIntBE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
   value = +value
   offset = offset >>> 0
   byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
 
   var i = byteLength - 1
   var mul = 1
   this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100))
+  while (--i >= 0 && (mul *= 0x100)) {
     this[offset + i] = (value / mul) >>> 0 & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeUInt8 = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 1, 0xff, 0)
+  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
   if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
   this[offset] = value
   return offset + 1
@@ -2043,27 +3008,29 @@ function objectWriteUInt16 (buf, value, offset, littleEndian) {
   }
 }
 
-Buffer.prototype.writeUInt16LE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0xffff, 0)
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
-  } else objectWriteUInt16(this, value, offset, true)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeUInt16BE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0xffff, 0)
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 8)
     this[offset + 1] = value
-  } else objectWriteUInt16(this, value, offset, false)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
   return offset + 2
 }
 
@@ -2074,139 +3041,144 @@ function objectWriteUInt32 (buf, value, offset, littleEndian) {
   }
 }
 
-Buffer.prototype.writeUInt32LE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset + 3] = (value >>> 24)
     this[offset + 2] = (value >>> 16)
     this[offset + 1] = (value >>> 8)
     this[offset] = value
-  } else objectWriteUInt32(this, value, offset, true)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeUInt32BE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0xffffffff, 0)
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 24)
     this[offset + 1] = (value >>> 16)
     this[offset + 2] = (value >>> 8)
     this[offset + 3] = value
-  } else objectWriteUInt32(this, value, offset, false)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeIntLE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
   value = +value
   offset = offset >>> 0
   if (!noAssert) {
-    checkInt(this,
-             value,
-             offset,
-             byteLength,
-             Math.pow(2, 8 * byteLength - 1) - 1,
-             -Math.pow(2, 8 * byteLength - 1))
+    checkInt(
+      this, value, offset, byteLength,
+      Math.pow(2, 8 * byteLength - 1) - 1,
+      -Math.pow(2, 8 * byteLength - 1)
+    )
   }
 
   var i = 0
   var mul = 1
   var sub = value < 0 ? 1 : 0
   this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeIntBE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
   value = +value
   offset = offset >>> 0
   if (!noAssert) {
-    checkInt(this,
-             value,
-             offset,
-             byteLength,
-             Math.pow(2, 8 * byteLength - 1) - 1,
-             -Math.pow(2, 8 * byteLength - 1))
+    checkInt(
+      this, value, offset, byteLength,
+      Math.pow(2, 8 * byteLength - 1) - 1,
+      -Math.pow(2, 8 * byteLength - 1)
+    )
   }
 
   var i = byteLength - 1
   var mul = 1
   var sub = value < 0 ? 1 : 0
   this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100))
+  while (--i >= 0 && (mul *= 0x100)) {
     this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeInt8 = function (value, offset, noAssert) {
+Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 1, 0x7f, -0x80)
+  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
   if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
   if (value < 0) value = 0xff + value + 1
   this[offset] = value
   return offset + 1
 }
 
-Buffer.prototype.writeInt16LE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
-  } else objectWriteUInt16(this, value, offset, true)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeInt16BE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 8)
     this[offset + 1] = value
-  } else objectWriteUInt16(this, value, offset, false)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeInt32LE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
     this[offset + 2] = (value >>> 16)
     this[offset + 3] = (value >>> 24)
-  } else objectWriteUInt32(this, value, offset, true)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeInt32BE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
   value = +value
   offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
   if (value < 0) value = 0xffffffff + value + 1
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 24)
     this[offset + 1] = (value >>> 16)
     this[offset + 2] = (value >>> 8)
     this[offset + 3] = value
-  } else objectWriteUInt32(this, value, offset, false)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
   return offset + 4
 }
 
@@ -2217,37 +3189,39 @@ function checkIEEE754 (buf, value, offset, ext, max, min) {
 }
 
 function writeFloat (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert)
+  if (!noAssert) {
     checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
+  }
   ieee754.write(buf, value, offset, littleEndian, 23, 4)
   return offset + 4
 }
 
-Buffer.prototype.writeFloatLE = function (value, offset, noAssert) {
+Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
   return writeFloat(this, value, offset, true, noAssert)
 }
 
-Buffer.prototype.writeFloatBE = function (value, offset, noAssert) {
+Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
   return writeFloat(this, value, offset, false, noAssert)
 }
 
 function writeDouble (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert)
+  if (!noAssert) {
     checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
+  }
   ieee754.write(buf, value, offset, littleEndian, 52, 8)
   return offset + 8
 }
 
-Buffer.prototype.writeDoubleLE = function (value, offset, noAssert) {
+Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
   return writeDouble(this, value, offset, true, noAssert)
 }
 
-Buffer.prototype.writeDoubleBE = function (value, offset, noAssert) {
+Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
   return writeDouble(this, value, offset, false, noAssert)
 }
 
 // copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
-Buffer.prototype.copy = function (target, target_start, start, end) {
+Buffer.prototype.copy = function copy (target, target_start, start, end) {
   var self = this // source
 
   if (!start) start = 0
@@ -2261,16 +3235,17 @@ Buffer.prototype.copy = function (target, target_start, start, end) {
   if (target.length === 0 || self.length === 0) return 0
 
   // Fatal error conditions
-  if (target_start < 0)
+  if (target_start < 0) {
     throw new RangeError('targetStart out of bounds')
+  }
   if (start < 0 || start >= self.length) throw new RangeError('sourceStart out of bounds')
   if (end < 0) throw new RangeError('sourceEnd out of bounds')
 
   // Are we oob?
-  if (end > this.length)
-    end = this.length
-  if (target.length - target_start < end - start)
+  if (end > this.length) end = this.length
+  if (target.length - target_start < end - start) {
     end = target.length - target_start + start
+  }
 
   var len = end - start
 
@@ -2286,7 +3261,7 @@ Buffer.prototype.copy = function (target, target_start, start, end) {
 }
 
 // fill(value, start=0, end=buffer.length)
-Buffer.prototype.fill = function (value, start, end) {
+Buffer.prototype.fill = function fill (value, start, end) {
   if (!value) value = 0
   if (!start) start = 0
   if (!end) end = this.length
@@ -2320,7 +3295,7 @@ Buffer.prototype.fill = function (value, start, end) {
  * Creates a new `ArrayBuffer` with the *copied* memory of the buffer instance.
  * Added in Node 0.12. Only available in browsers that support ArrayBuffer.
  */
-Buffer.prototype.toArrayBuffer = function () {
+Buffer.prototype.toArrayBuffer = function toArrayBuffer () {
   if (typeof Uint8Array !== 'undefined') {
     if (Buffer.TYPED_ARRAY_SUPPORT) {
       return (new Buffer(this)).buffer
@@ -2344,7 +3319,7 @@ var BP = Buffer.prototype
 /**
  * Augment a Uint8Array *instance* (not the Uint8Array class!) with Buffer methods
  */
-Buffer._augment = function (arr) {
+Buffer._augment = function _augment (arr) {
   arr.constructor = Buffer
   arr._isBuffer = true
 
@@ -2362,6 +3337,7 @@ Buffer._augment = function (arr) {
   arr.toJSON = BP.toJSON
   arr.equals = BP.equals
   arr.compare = BP.compare
+  arr.indexOf = BP.indexOf
   arr.copy = BP.copy
   arr.slice = BP.slice
   arr.readUIntLE = BP.readUIntLE
@@ -2549,8 +3525,7 @@ function base64ToBytes (str) {
 
 function blitBuffer (src, dst, offset, length) {
   for (var i = 0; i < length; i++) {
-    if ((i + offset >= dst.length) || (i >= src.length))
-      break
+    if ((i + offset >= dst.length) || (i >= src.length)) break
     dst[i + offset] = src[i]
   }
   return i
@@ -2564,7 +3539,7 @@ function decodeUtf8Char (str) {
   }
 }
 
-},{"base64-js":24,"ieee754":25,"is-array":26}],24:[function(require,module,exports){
+},{"base64-js":38,"ieee754":39,"is-array":40}],38:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -2690,7 +3665,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],25:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 exports.read = function(buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
@@ -2776,7 +3751,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128;
 };
 
-},{}],26:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 
 /**
  * isArray
@@ -2811,7 +3786,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],27:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 var upperCase    = require('upper-case');
 var sentenceCase = require('sentence-case');
 
@@ -2832,7 +3807,7 @@ module.exports = function (string, locale) {
     });
 };
 
-},{"sentence-case":28,"upper-case":61}],28:[function(require,module,exports){
+},{"sentence-case":42,"upper-case":75}],42:[function(require,module,exports){
 var lowerCase = require('lower-case')
 
 var NON_WORD_REGEXP = require('./vendor/non-word-regexp')
@@ -2874,16 +3849,16 @@ module.exports = function (str, locale, replacement) {
   return lowerCase(str, locale)
 }
 
-},{"./vendor/camel-case-regexp":29,"./vendor/non-word-regexp":30,"./vendor/trailing-digit-regexp":31,"lower-case":46}],29:[function(require,module,exports){
+},{"./vendor/camel-case-regexp":43,"./vendor/non-word-regexp":44,"./vendor/trailing-digit-regexp":45,"lower-case":60}],43:[function(require,module,exports){
 module.exports = /([\u0061-\u007A\u00B5\u00DF-\u00F6\u00F8-\u00FF\u0101\u0103\u0105\u0107\u0109\u010B\u010D\u010F\u0111\u0113\u0115\u0117\u0119\u011B\u011D\u011F\u0121\u0123\u0125\u0127\u0129\u012B\u012D\u012F\u0131\u0133\u0135\u0137\u0138\u013A\u013C\u013E\u0140\u0142\u0144\u0146\u0148\u0149\u014B\u014D\u014F\u0151\u0153\u0155\u0157\u0159\u015B\u015D\u015F\u0161\u0163\u0165\u0167\u0169\u016B\u016D\u016F\u0171\u0173\u0175\u0177\u017A\u017C\u017E-\u0180\u0183\u0185\u0188\u018C\u018D\u0192\u0195\u0199-\u019B\u019E\u01A1\u01A3\u01A5\u01A8\u01AA\u01AB\u01AD\u01B0\u01B4\u01B6\u01B9\u01BA\u01BD-\u01BF\u01C6\u01C9\u01CC\u01CE\u01D0\u01D2\u01D4\u01D6\u01D8\u01DA\u01DC\u01DD\u01DF\u01E1\u01E3\u01E5\u01E7\u01E9\u01EB\u01ED\u01EF\u01F0\u01F3\u01F5\u01F9\u01FB\u01FD\u01FF\u0201\u0203\u0205\u0207\u0209\u020B\u020D\u020F\u0211\u0213\u0215\u0217\u0219\u021B\u021D\u021F\u0221\u0223\u0225\u0227\u0229\u022B\u022D\u022F\u0231\u0233-\u0239\u023C\u023F\u0240\u0242\u0247\u0249\u024B\u024D\u024F-\u0293\u0295-\u02AF\u0371\u0373\u0377\u037B-\u037D\u0390\u03AC-\u03CE\u03D0\u03D1\u03D5-\u03D7\u03D9\u03DB\u03DD\u03DF\u03E1\u03E3\u03E5\u03E7\u03E9\u03EB\u03ED\u03EF-\u03F3\u03F5\u03F8\u03FB\u03FC\u0430-\u045F\u0461\u0463\u0465\u0467\u0469\u046B\u046D\u046F\u0471\u0473\u0475\u0477\u0479\u047B\u047D\u047F\u0481\u048B\u048D\u048F\u0491\u0493\u0495\u0497\u0499\u049B\u049D\u049F\u04A1\u04A3\u04A5\u04A7\u04A9\u04AB\u04AD\u04AF\u04B1\u04B3\u04B5\u04B7\u04B9\u04BB\u04BD\u04BF\u04C2\u04C4\u04C6\u04C8\u04CA\u04CC\u04CE\u04CF\u04D1\u04D3\u04D5\u04D7\u04D9\u04DB\u04DD\u04DF\u04E1\u04E3\u04E5\u04E7\u04E9\u04EB\u04ED\u04EF\u04F1\u04F3\u04F5\u04F7\u04F9\u04FB\u04FD\u04FF\u0501\u0503\u0505\u0507\u0509\u050B\u050D\u050F\u0511\u0513\u0515\u0517\u0519\u051B\u051D\u051F\u0521\u0523\u0525\u0527\u0561-\u0587\u1D00-\u1D2B\u1D6B-\u1D77\u1D79-\u1D9A\u1E01\u1E03\u1E05\u1E07\u1E09\u1E0B\u1E0D\u1E0F\u1E11\u1E13\u1E15\u1E17\u1E19\u1E1B\u1E1D\u1E1F\u1E21\u1E23\u1E25\u1E27\u1E29\u1E2B\u1E2D\u1E2F\u1E31\u1E33\u1E35\u1E37\u1E39\u1E3B\u1E3D\u1E3F\u1E41\u1E43\u1E45\u1E47\u1E49\u1E4B\u1E4D\u1E4F\u1E51\u1E53\u1E55\u1E57\u1E59\u1E5B\u1E5D\u1E5F\u1E61\u1E63\u1E65\u1E67\u1E69\u1E6B\u1E6D\u1E6F\u1E71\u1E73\u1E75\u1E77\u1E79\u1E7B\u1E7D\u1E7F\u1E81\u1E83\u1E85\u1E87\u1E89\u1E8B\u1E8D\u1E8F\u1E91\u1E93\u1E95-\u1E9D\u1E9F\u1EA1\u1EA3\u1EA5\u1EA7\u1EA9\u1EAB\u1EAD\u1EAF\u1EB1\u1EB3\u1EB5\u1EB7\u1EB9\u1EBB\u1EBD\u1EBF\u1EC1\u1EC3\u1EC5\u1EC7\u1EC9\u1ECB\u1ECD\u1ECF\u1ED1\u1ED3\u1ED5\u1ED7\u1ED9\u1EDB\u1EDD\u1EDF\u1EE1\u1EE3\u1EE5\u1EE7\u1EE9\u1EEB\u1EED\u1EEF\u1EF1\u1EF3\u1EF5\u1EF7\u1EF9\u1EFB\u1EFD\u1EFF-\u1F07\u1F10-\u1F15\u1F20-\u1F27\u1F30-\u1F37\u1F40-\u1F45\u1F50-\u1F57\u1F60-\u1F67\u1F70-\u1F7D\u1F80-\u1F87\u1F90-\u1F97\u1FA0-\u1FA7\u1FB0-\u1FB4\u1FB6\u1FB7\u1FBE\u1FC2-\u1FC4\u1FC6\u1FC7\u1FD0-\u1FD3\u1FD6\u1FD7\u1FE0-\u1FE7\u1FF2-\u1FF4\u1FF6\u1FF7\u210A\u210E\u210F\u2113\u212F\u2134\u2139\u213C\u213D\u2146-\u2149\u214E\u2184\u2C30-\u2C5E\u2C61\u2C65\u2C66\u2C68\u2C6A\u2C6C\u2C71\u2C73\u2C74\u2C76-\u2C7B\u2C81\u2C83\u2C85\u2C87\u2C89\u2C8B\u2C8D\u2C8F\u2C91\u2C93\u2C95\u2C97\u2C99\u2C9B\u2C9D\u2C9F\u2CA1\u2CA3\u2CA5\u2CA7\u2CA9\u2CAB\u2CAD\u2CAF\u2CB1\u2CB3\u2CB5\u2CB7\u2CB9\u2CBB\u2CBD\u2CBF\u2CC1\u2CC3\u2CC5\u2CC7\u2CC9\u2CCB\u2CCD\u2CCF\u2CD1\u2CD3\u2CD5\u2CD7\u2CD9\u2CDB\u2CDD\u2CDF\u2CE1\u2CE3\u2CE4\u2CEC\u2CEE\u2CF3\u2D00-\u2D25\u2D27\u2D2D\uA641\uA643\uA645\uA647\uA649\uA64B\uA64D\uA64F\uA651\uA653\uA655\uA657\uA659\uA65B\uA65D\uA65F\uA661\uA663\uA665\uA667\uA669\uA66B\uA66D\uA681\uA683\uA685\uA687\uA689\uA68B\uA68D\uA68F\uA691\uA693\uA695\uA697\uA723\uA725\uA727\uA729\uA72B\uA72D\uA72F-\uA731\uA733\uA735\uA737\uA739\uA73B\uA73D\uA73F\uA741\uA743\uA745\uA747\uA749\uA74B\uA74D\uA74F\uA751\uA753\uA755\uA757\uA759\uA75B\uA75D\uA75F\uA761\uA763\uA765\uA767\uA769\uA76B\uA76D\uA76F\uA771-\uA778\uA77A\uA77C\uA77F\uA781\uA783\uA785\uA787\uA78C\uA78E\uA791\uA793\uA7A1\uA7A3\uA7A5\uA7A7\uA7A9\uA7FA\uFB00-\uFB06\uFB13-\uFB17\uFF41-\uFF5A])([\u0041-\u005A\u00C0-\u00D6\u00D8-\u00DE\u0100\u0102\u0104\u0106\u0108\u010A\u010C\u010E\u0110\u0112\u0114\u0116\u0118\u011A\u011C\u011E\u0120\u0122\u0124\u0126\u0128\u012A\u012C\u012E\u0130\u0132\u0134\u0136\u0139\u013B\u013D\u013F\u0141\u0143\u0145\u0147\u014A\u014C\u014E\u0150\u0152\u0154\u0156\u0158\u015A\u015C\u015E\u0160\u0162\u0164\u0166\u0168\u016A\u016C\u016E\u0170\u0172\u0174\u0176\u0178\u0179\u017B\u017D\u0181\u0182\u0184\u0186\u0187\u0189-\u018B\u018E-\u0191\u0193\u0194\u0196-\u0198\u019C\u019D\u019F\u01A0\u01A2\u01A4\u01A6\u01A7\u01A9\u01AC\u01AE\u01AF\u01B1-\u01B3\u01B5\u01B7\u01B8\u01BC\u01C4\u01C7\u01CA\u01CD\u01CF\u01D1\u01D3\u01D5\u01D7\u01D9\u01DB\u01DE\u01E0\u01E2\u01E4\u01E6\u01E8\u01EA\u01EC\u01EE\u01F1\u01F4\u01F6-\u01F8\u01FA\u01FC\u01FE\u0200\u0202\u0204\u0206\u0208\u020A\u020C\u020E\u0210\u0212\u0214\u0216\u0218\u021A\u021C\u021E\u0220\u0222\u0224\u0226\u0228\u022A\u022C\u022E\u0230\u0232\u023A\u023B\u023D\u023E\u0241\u0243-\u0246\u0248\u024A\u024C\u024E\u0370\u0372\u0376\u0386\u0388-\u038A\u038C\u038E\u038F\u0391-\u03A1\u03A3-\u03AB\u03CF\u03D2-\u03D4\u03D8\u03DA\u03DC\u03DE\u03E0\u03E2\u03E4\u03E6\u03E8\u03EA\u03EC\u03EE\u03F4\u03F7\u03F9\u03FA\u03FD-\u042F\u0460\u0462\u0464\u0466\u0468\u046A\u046C\u046E\u0470\u0472\u0474\u0476\u0478\u047A\u047C\u047E\u0480\u048A\u048C\u048E\u0490\u0492\u0494\u0496\u0498\u049A\u049C\u049E\u04A0\u04A2\u04A4\u04A6\u04A8\u04AA\u04AC\u04AE\u04B0\u04B2\u04B4\u04B6\u04B8\u04BA\u04BC\u04BE\u04C0\u04C1\u04C3\u04C5\u04C7\u04C9\u04CB\u04CD\u04D0\u04D2\u04D4\u04D6\u04D8\u04DA\u04DC\u04DE\u04E0\u04E2\u04E4\u04E6\u04E8\u04EA\u04EC\u04EE\u04F0\u04F2\u04F4\u04F6\u04F8\u04FA\u04FC\u04FE\u0500\u0502\u0504\u0506\u0508\u050A\u050C\u050E\u0510\u0512\u0514\u0516\u0518\u051A\u051C\u051E\u0520\u0522\u0524\u0526\u0531-\u0556\u10A0-\u10C5\u10C7\u10CD\u1E00\u1E02\u1E04\u1E06\u1E08\u1E0A\u1E0C\u1E0E\u1E10\u1E12\u1E14\u1E16\u1E18\u1E1A\u1E1C\u1E1E\u1E20\u1E22\u1E24\u1E26\u1E28\u1E2A\u1E2C\u1E2E\u1E30\u1E32\u1E34\u1E36\u1E38\u1E3A\u1E3C\u1E3E\u1E40\u1E42\u1E44\u1E46\u1E48\u1E4A\u1E4C\u1E4E\u1E50\u1E52\u1E54\u1E56\u1E58\u1E5A\u1E5C\u1E5E\u1E60\u1E62\u1E64\u1E66\u1E68\u1E6A\u1E6C\u1E6E\u1E70\u1E72\u1E74\u1E76\u1E78\u1E7A\u1E7C\u1E7E\u1E80\u1E82\u1E84\u1E86\u1E88\u1E8A\u1E8C\u1E8E\u1E90\u1E92\u1E94\u1E9E\u1EA0\u1EA2\u1EA4\u1EA6\u1EA8\u1EAA\u1EAC\u1EAE\u1EB0\u1EB2\u1EB4\u1EB6\u1EB8\u1EBA\u1EBC\u1EBE\u1EC0\u1EC2\u1EC4\u1EC6\u1EC8\u1ECA\u1ECC\u1ECE\u1ED0\u1ED2\u1ED4\u1ED6\u1ED8\u1EDA\u1EDC\u1EDE\u1EE0\u1EE2\u1EE4\u1EE6\u1EE8\u1EEA\u1EEC\u1EEE\u1EF0\u1EF2\u1EF4\u1EF6\u1EF8\u1EFA\u1EFC\u1EFE\u1F08-\u1F0F\u1F18-\u1F1D\u1F28-\u1F2F\u1F38-\u1F3F\u1F48-\u1F4D\u1F59\u1F5B\u1F5D\u1F5F\u1F68-\u1F6F\u1FB8-\u1FBB\u1FC8-\u1FCB\u1FD8-\u1FDB\u1FE8-\u1FEC\u1FF8-\u1FFB\u2102\u2107\u210B-\u210D\u2110-\u2112\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u2130-\u2133\u213E\u213F\u2145\u2183\u2C00-\u2C2E\u2C60\u2C62-\u2C64\u2C67\u2C69\u2C6B\u2C6D-\u2C70\u2C72\u2C75\u2C7E-\u2C80\u2C82\u2C84\u2C86\u2C88\u2C8A\u2C8C\u2C8E\u2C90\u2C92\u2C94\u2C96\u2C98\u2C9A\u2C9C\u2C9E\u2CA0\u2CA2\u2CA4\u2CA6\u2CA8\u2CAA\u2CAC\u2CAE\u2CB0\u2CB2\u2CB4\u2CB6\u2CB8\u2CBA\u2CBC\u2CBE\u2CC0\u2CC2\u2CC4\u2CC6\u2CC8\u2CCA\u2CCC\u2CCE\u2CD0\u2CD2\u2CD4\u2CD6\u2CD8\u2CDA\u2CDC\u2CDE\u2CE0\u2CE2\u2CEB\u2CED\u2CF2\uA640\uA642\uA644\uA646\uA648\uA64A\uA64C\uA64E\uA650\uA652\uA654\uA656\uA658\uA65A\uA65C\uA65E\uA660\uA662\uA664\uA666\uA668\uA66A\uA66C\uA680\uA682\uA684\uA686\uA688\uA68A\uA68C\uA68E\uA690\uA692\uA694\uA696\uA722\uA724\uA726\uA728\uA72A\uA72C\uA72E\uA732\uA734\uA736\uA738\uA73A\uA73C\uA73E\uA740\uA742\uA744\uA746\uA748\uA74A\uA74C\uA74E\uA750\uA752\uA754\uA756\uA758\uA75A\uA75C\uA75E\uA760\uA762\uA764\uA766\uA768\uA76A\uA76C\uA76E\uA779\uA77B\uA77D\uA77E\uA780\uA782\uA784\uA786\uA78B\uA78D\uA790\uA792\uA7A0\uA7A2\uA7A4\uA7A6\uA7A8\uA7AA\uFF21-\uFF3A\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19])/g
 
-},{}],30:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module.exports = /[^\u0041-\u005A\u0061-\u007A\u00AA\u00B5\u00BA\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19]+/g
 
-},{}],31:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 module.exports = /([\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19])([^\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19])/g
 
-},{}],32:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 var upperCase = require('upper-case');
 var snakeCase = require('snake-case');
 
@@ -2898,7 +3873,7 @@ module.exports = function (string, locale) {
   return upperCase(snakeCase(string, locale), locale);
 };
 
-},{"snake-case":60,"upper-case":61}],33:[function(require,module,exports){
+},{"snake-case":74,"upper-case":75}],47:[function(require,module,exports){
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
 var undefined;
@@ -2981,7 +3956,7 @@ module.exports = function extend() {
 };
 
 
-},{}],34:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 (function (global){
 "use strict";
 /*globals Handlebars: true */
@@ -3030,7 +4005,7 @@ Handlebars['default'] = Handlebars;
 
 exports["default"] = Handlebars;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./handlebars/base":35,"./handlebars/exception":36,"./handlebars/runtime":37,"./handlebars/safe-string":38,"./handlebars/utils":39}],35:[function(require,module,exports){
+},{"./handlebars/base":49,"./handlebars/exception":50,"./handlebars/runtime":51,"./handlebars/safe-string":52,"./handlebars/utils":53}],49:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -3274,7 +4249,7 @@ var createFrame = function(object) {
   return frame;
 };
 exports.createFrame = createFrame;
-},{"./exception":36,"./utils":39}],36:[function(require,module,exports){
+},{"./exception":50,"./utils":53}],50:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -3306,7 +4281,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],37:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -3527,7 +4502,7 @@ exports.noop = noop;function initData(context, data) {
   }
   return data;
 }
-},{"./base":35,"./exception":36,"./utils":39}],38:[function(require,module,exports){
+},{"./base":49,"./exception":50,"./utils":53}],52:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -3539,7 +4514,7 @@ SafeString.prototype.toString = SafeString.prototype.toHTML = function() {
 };
 
 exports["default"] = SafeString;
-},{}],39:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var escape = {
@@ -3641,15 +4616,15 @@ exports.blockParams = blockParams;function appendContextPath(contextPath, id) {
 }
 
 exports.appendContextPath = appendContextPath;
-},{}],40:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime').default;
 
-},{"./dist/cjs/handlebars.runtime":34}],41:[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":48}],55:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":40}],42:[function(require,module,exports){
+},{"handlebars/runtime":54}],56:[function(require,module,exports){
 'use strict';
 var repeating = require('repeating');
 
@@ -3667,7 +4642,7 @@ module.exports = function (str, indent, count) {
 	return str.replace(/^(?!\s*$)/mg, indent);
 };
 
-},{"repeating":43}],43:[function(require,module,exports){
+},{"repeating":57}],57:[function(require,module,exports){
 'use strict';
 var isFinite = require('is-finite');
 
@@ -3693,7 +4668,7 @@ module.exports = function (str, n) {
 	return ret;
 };
 
-},{"is-finite":44}],44:[function(require,module,exports){
+},{"is-finite":58}],58:[function(require,module,exports){
 'use strict';
 module.exports = Number.isFinite || function (val) {
 	// Number.isNaN() => val !== val
@@ -3704,7 +4679,7 @@ module.exports = Number.isFinite || function (val) {
 	return true;
 };
 
-},{}],45:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 (function (Buffer){
 (function (root, stringify) {
   /* istanbul ignore else */
@@ -3952,7 +4927,7 @@ module.exports = Number.isFinite || function (val) {
 });
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":23}],46:[function(require,module,exports){
+},{"buffer":37}],60:[function(require,module,exports){
 /**
  * Special language-specific overrides.
  *
@@ -4008,7 +4983,7 @@ module.exports = function (str, locale) {
   return str.toLowerCase()
 }
 
-},{}],47:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 
 var http = require('http');
 
@@ -4052,7 +5027,7 @@ if (http.METHODS) {
 
 }
 
-},{"http":22}],48:[function(require,module,exports){
+},{"http":36}],62:[function(require,module,exports){
 /*!
  * object.pick <https://github.com/jonschlinkert/object.pick>
  *
@@ -4088,15 +5063,15 @@ module.exports = function pick(obj, keys) {
   return res;
 };
 
-},{}],49:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"./vendor/camel-case-regexp":50,"./vendor/non-word-regexp":51,"./vendor/trailing-digit-regexp":52,"dup":28,"lower-case":46}],50:[function(require,module,exports){
-arguments[4][29][0].apply(exports,arguments)
-},{"dup":29}],51:[function(require,module,exports){
-arguments[4][30][0].apply(exports,arguments)
-},{"dup":30}],52:[function(require,module,exports){
-arguments[4][31][0].apply(exports,arguments)
-},{"dup":31}],53:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"./vendor/camel-case-regexp":64,"./vendor/non-word-regexp":65,"./vendor/trailing-digit-regexp":66,"dup":42,"lower-case":60}],64:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],65:[function(require,module,exports){
+arguments[4][44][0].apply(exports,arguments)
+},{"dup":44}],66:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"dup":45}],67:[function(require,module,exports){
 var sentenceCase = require('sentence-case');
 
 /**
@@ -4110,7 +5085,7 @@ module.exports = function (string, locale) {
   return sentenceCase(string, locale, '-');
 };
 
-},{"sentence-case":49}],54:[function(require,module,exports){
+},{"sentence-case":63}],68:[function(require,module,exports){
 var upperCase = require('upper-case');
 
 /**
@@ -4129,7 +5104,7 @@ module.exports = function (str, locale) {
   return upperCase(str.charAt(0), locale) + str.substr(1);
 };
 
-},{"upper-case":61}],55:[function(require,module,exports){
+},{"upper-case":75}],69:[function(require,module,exports){
 var camelCase      = require('camel-case');
 var upperCaseFirst = require('upper-case-first');
 
@@ -4144,15 +5119,15 @@ module.exports = function (string, locale) {
   return upperCaseFirst(camelCase(string, locale), locale);
 };
 
-},{"camel-case":27,"upper-case-first":54}],56:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"./vendor/camel-case-regexp":57,"./vendor/non-word-regexp":58,"./vendor/trailing-digit-regexp":59,"dup":28,"lower-case":46}],57:[function(require,module,exports){
-arguments[4][29][0].apply(exports,arguments)
-},{"dup":29}],58:[function(require,module,exports){
-arguments[4][30][0].apply(exports,arguments)
-},{"dup":30}],59:[function(require,module,exports){
-arguments[4][31][0].apply(exports,arguments)
-},{"dup":31}],60:[function(require,module,exports){
+},{"camel-case":41,"upper-case-first":68}],70:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"./vendor/camel-case-regexp":71,"./vendor/non-word-regexp":72,"./vendor/trailing-digit-regexp":73,"dup":42,"lower-case":60}],71:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],72:[function(require,module,exports){
+arguments[4][44][0].apply(exports,arguments)
+},{"dup":44}],73:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"dup":45}],74:[function(require,module,exports){
 var sentenceCase = require('sentence-case');
 
 /**
@@ -4166,7 +5141,7 @@ module.exports = function (str, locale) {
   return sentenceCase(str, locale, '_');
 };
 
-},{"sentence-case":56}],61:[function(require,module,exports){
+},{"sentence-case":70}],75:[function(require,module,exports){
 /**
  * Special language-specific overrides.
  *
@@ -4218,11 +5193,12 @@ module.exports = function (str, locale) {
   return str.toUpperCase()
 }
 
-},{}],62:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 /**
  * Export all implemented languages.
  */
 exports.javascript = require('./javascript');
+exports.python = require('./python');
 
-},{"./javascript":4}]},{},[62])(62)
+},{"./javascript":4,"./python":18}]},{},[76])(76)
 });
