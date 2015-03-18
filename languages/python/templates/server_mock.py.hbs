@@ -28,14 +28,14 @@ class Mock_API:
     ###
 {{#each resource.uriList}}
     if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"	
+      raise "MISSING"
     if wrongType({{displayName}},'{{type}}'):
       raise "WRONGTYPE"
 {{/each}}
 
 {{#each queryParameters}}
     if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"	
+      raise "MISSING"
     if wrongType({{displayName}},'{{type}}'):
       raise "WRONGTYPE"
 {{/each}}
@@ -43,7 +43,7 @@ class Mock_API:
 {{#each body}}
 {{#each formParameters}}
     if bool({{required}}) and {{displayName}} is None:
-      raise "MISSING"	
+      raise "MISSING"
     if wrongType({{displayName}},'{{type}}'):
       raise "WRONGTYPE"
 {{/each}}

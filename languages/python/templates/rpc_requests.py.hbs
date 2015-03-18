@@ -2,6 +2,20 @@
 
 import requests,json
 
+def wrongType(var,typ):
+    try:
+        if typ=='integer':
+            int(var)
+        elif typ=='number':
+            float(var)
+            pass
+        return False
+    except:
+        return True
+    pass
+
+true,false=True,False
+
 {{#each allMethods}}
 def rpc{{flatPath resource}}_{{method}}(self,
   {{#each resource.uriParameters}}{{displayName}}=None,{{/each}} #uri
@@ -14,9 +28,40 @@ def rpc{{flatPath resource}}_{{method}}(self,
    path='{{fullPath resource}}'
 
    uri=path
-{{#each resource.uriParameters}}
+{{#each resource.uriList}}
    uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
 {{/each}}
+
+    ###
+    #  put field validation here
+    ###
+{{#each resource.uriList}}
+    if bool({{required}}) and {{displayName}} is None:
+      raise "MISSING"
+    if wrongType({{displayName}},'{{type}}'):
+      raise "WRONGTYPE"
+{{/each}}
+
+{{#each queryParameters}}
+    if bool({{required}}) and {{displayName}} is None:
+      raise "MISSING"
+    if wrongType({{displayName}},'{{type}}'):
+      raise "WRONGTYPE"
+{{/each}}
+
+{{#each body}}
+{{#each formParameters}}
+    if bool({{required}}) and {{displayName}} is None:
+      raise "MISSING"
+    if wrongType({{displayName}},'{{type}}'):
+      raise "WRONGTYPE"
+{{/each}}
+{{/each}}
+    ###
+    #  end field validation here
+    ###
+
+
 
    query={}
 {{#each queryParameters}}
