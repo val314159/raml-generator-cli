@@ -1,4 +1,9 @@
-var generator = require('../../lib/generator');
+var fs = require('fs');
+var generator = require('raml-generator');
+
+function load(fn) {
+    return fs.readFileSync(__dirname+'/templates/'+fn+'.hbs','utf8');
+}
 
 /**
  * Export a client generator instance.
@@ -7,18 +12,18 @@ var generator = require('../../lib/generator');
  */
 module.exports = generator({
   templates: {
-    'rpc_requests.py'  : require('./templates/rpc_requests.py.hbs'),
-    'rpc_tornado.py'   : require('./templates/rpc_tornado.py.hbs'),
-    'rpc_urlfetch.py'  : require('./templates/rpc_tornado.py.hbs'),
-    'rpc_httplib2.py'  : require('./templates/rpc_tornado.py.hbs'),
-    'rpc_httplib.py'   : require('./templates/rpc_tornado.py.hbs'),
-    'rpc_geventhttpclient.py':
-      require('./templates/rpc_geventhttpclient.py.hbs'),
-    'rpc_gae.py'       : require('./templates/rpc_gae.py.hbs'),
-    'test.py'          : require('./templates/test.py.hbs'),
-    'server_mock.py'   : require('./templates/server_mock.py.hbs'),
-    'server_wsgi.py'   : require('./templates/server_wsgi.py.hbs'),
-    'server_tornado.py': require('./templates/server_tornado.py.hbs'),
+    '__init__.py'      :      load('__init__.py'),
+    'rpc_requests.py'  :      load('rpc_requests.py'),
+    'rpc_tornado.py'   :      load('rpc_tornado.py'),
+    'rpc_urlfetch.py'  :      load('rpc_urlfetch.py'),
+    'rpc_httplib2.py'  :      load('rpc_httplib2.py'),
+    'rpc_httplib.py'   :      load('rpc_httplib.py'),
+    'rpc_geventhttpclient.py':load('rpc_geventhttpclient.py'),
+    'rpc_gae.py'       :      load('rpc_gae.py'),
+    'example.py'       :      load('example.py'),
+    'server_mock.py'   :      load('server_mock.py'),
+    'server_wsgi.py'   :      load('server_wsgi.py'),
+    'server_tornado.py':      load('server_tornado.py'),
   },
   format: {
     variable: require('camel-case')

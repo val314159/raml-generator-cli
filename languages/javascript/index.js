@@ -1,4 +1,9 @@
-var generator = require('../../lib/generator');
+var fs = require('fs');
+var generator = require('raml-generator');
+
+function load(fn) {
+    return fs.readFileSync(__dirname+fn+'.hbs','utf8');
+}
 
 /**
  * Export a client generator instance.
@@ -7,20 +12,20 @@ var generator = require('../../lib/generator');
  */
 module.exports = generator({
   templates: {
-    '.gitignore':   require('./templates/.gitignore.hbs'),
-    'index.js':     require('./templates/index.js.hbs'),
-    'README.md':    require('./templates/README.md.hbs'),
-    'INSTALL.md':   require('./templates/INSTALL.md.hbs'),
-    'package.json': require('./templates/package.json.hbs')
+    '.gitignore':   load('/templates/.gitignore'),
+    'index.js':     load('/templates/index.js'),
+    'README.md':    load('/templates/README.md'),
+    'INSTALL.md':   load('/templates/INSTALL.md'),
+    'package.json': load('/templates/package.json')
   },
   format: {
     variable: require('camel-case')
   },
   partials: {
-    auth:      require('./partials/auth.js.hbs'),
-    utils:     require('./partials/utils.js.hbs'),
-    client:    require('./partials/client.js.hbs'),
-    resources: require('./partials/resources.js.hbs')
+    auth:      load('/partials/auth.js'),
+    utils:     load('/partials/utils.js'),
+    client:    load('/partials/client.js'),
+    resources: load('/partials/resources.js'),
   },
   helpers: {
     stringify:         require('javascript-stringify'),

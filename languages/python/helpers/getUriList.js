@@ -5,7 +5,7 @@
  * @return {String}
  */
 function extend(arr,arr2){
-    if (arr2===undefined) return;
+    if (arr2===undefined){return;}
     for (var i=0; i<arr2.length; i++)
 	arr.push(arr2[i]);
 }

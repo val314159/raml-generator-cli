@@ -3,8 +3,7 @@
 import requests,json
 
 def wrongType(var,typ):
-    print "wrongType"+repr((var,typ))
-    
+    #print "wrongType"+repr((var,typ))
     try:
         if typ=='integer':
             int(var)
@@ -40,14 +39,14 @@ class RequestsAPI(object):
     path='{{fullPath resource}}'
 
     uri=self.prefixUri+path
-{{#each resource.uriList}}
+    {{#each resource.uriList}}
     uri=uri.replace('{'+'{{displayName}}'+'}',{{displayName}})
-{{/each}}
+    {{/each}}
 
     ###
     #  put field validation here
     ###
-{{#each resource.uriList}}
+    {{#each resource.uriList}}
     print "uCHECK {{displayName}}"
     if {{displayName}} is None:
       if bool({{required}}):
@@ -55,9 +54,9 @@ class RequestsAPI(object):
     else:
       if wrongType({{displayName}},'{{type}}'):
         raise "WRONGTYPE"
-{{/each}}
+    {{/each}}
 
-{{#each queryParameters}}
+    {{#each queryParameters}}
     print "qCHECK {{displayName}}"
     if {{displayName}} is None:
       if bool({{required}}):
@@ -65,10 +64,10 @@ class RequestsAPI(object):
     else:
       if wrongType({{displayName}},'{{type}}'):
         raise "WRONGTYPE"
-{{/each}}
+    {{/each}}
 
-{{#each body}}
-{{#each formParameters}}
+    {{#each body}}
+        {{#each formParameters}}
     print "fCHECK {{displayName}}"
     if {{displayName}} is None:
       if bool({{required}}):
@@ -76,8 +75,8 @@ class RequestsAPI(object):
     else:
       if wrongType({{displayName}},'{{type}}'):
         raise "WRONGTYPE"
-{{/each}}
-{{/each}}
+        {{/each}}
+    {{/each}}
     ###
     #  end field validation here
     ###
@@ -88,10 +87,10 @@ class RequestsAPI(object):
     if access_token:
       query['access_token'] = access_token
       pass
-{{#each queryParameters}}
+    {{#each queryParameters}}
     if {{@key}} is not None:
       query['{{@key}}']={{@key}}
-{{/each}}
+    {{/each}}
 
     qstr='&'.join([(str(k)+'='+str(v)) for k,v in query.iteritems()])
     if qstr: qstr='?'+qstr
@@ -99,10 +98,12 @@ class RequestsAPI(object):
     body = None
     if '{{method}}' in ('post','put','patch'):
        form={}
-{{#each body}}{{#each formParameters}}
+    {{#each body}}
+        {{#each formParameters}}
        if {{@key}} is not None:
          form['{{@key}}']={{@key}}
-{{/each}}{{/each}}
+        {{/each}}
+    {{/each}}
        body = urllib.urlencode(form)
        pass
     print "GO", repr(uri+qstr)
@@ -115,8 +116,29 @@ def main():
     print "main1"
     api = RequestsAPI(access_token=access_token)
     print "main2"
-    api.rpc_media_popular_get()
-    print "main3"
+    ret = api.rpc_media_popular_get()
+    print "main3", ret
+    print "main3", dir(ret)
+    if ret.status_code == requests.codes.ok:
+        print "WE ARE GOOD"
+    else:
+        print "OMG WE SUCK"
+        pass
     pass
 
-if __name__=='__main__': main()
+def test():
+    access_token='185651424.06e610f.3bd9116b82b2448395ca411d2e13bc39'
+    api = RequestsAPI(access_token=access_token)
+    pass
+
+class Test:
+    def setup(_):
+        _.access_token='185651424.06e610f.3bd9116b82b2448395ca411d2e13bc39'
+        _.api = RequestsAPI(access_token=_.access_token)
+        pass
+
+    def test(_):
+        ret = _.api.rpc_media_popular_get()
+        assert ret.status_code == requests.codes.ok
+
+if __name__=='__main__': test()
