@@ -196,7 +196,7 @@ function lalala(resource) {
     return uri+relUri;
 }
 module.exports = function (resource) {
-    var context = this;
+    //var context = this;
     var uri = lalala(resource);
     uri=uri.replace(/\//g,'_');
     uri=uri.replace(/-/g,'_');
@@ -234,7 +234,7 @@ function lalala(resource) {
     return uri+relUri;
 }
 module.exports = function (resource) {
-    var context = this;
+    //var context = this;
     var uri = lalala(resource);
     return uri;
 };
@@ -248,9 +248,9 @@ module.exports = function (resource) {
  */
 function extend(arr,arr2){
     if (arr2===undefined){return;}
-    for (var i=0; i<arr2.length; i++)
+    for (var i=0; i<arr2.length; i++){
 	arr.push(arr2[i]);
-}
+}}
 function getUriList(resource) {
     var ret = [];
     extend(ret, resource.uriParameters);
@@ -270,14 +270,14 @@ module.exports = function(resource){
  * @param  {Object} resource
  * @return {String}
  */
-var fs = require("fs");
+var fs = require('fs');
 function importJson(resource, filename, symbol) {
     var data = fs.readFileSync(filename,'ascii');
     data = JSON.parse(data);
     resource[symbol] = data;
     this[symbol] = data;
     return '';
-};
+}
 module.exports = importJson;
 
 },{"fs":10}],9:[function(require,module,exports){

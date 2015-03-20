@@ -24,7 +24,7 @@ function lalala(resource) {
     return uri+relUri;
 }
 module.exports = function (resource) {
-    var context = this;
+    //var context = this;
     var uri = lalala(resource);
     uri=uri.replace(/\//g,'_');
     uri=uri.replace(/-/g,'_');

@@ -6,9 +6,9 @@
  */
 function extend(arr,arr2){
     if (arr2===undefined){return;}
-    for (var i=0; i<arr2.length; i++)
+    for (var i=0; i<arr2.length; i++){
 	arr.push(arr2[i]);
-}
+}}
 function getUriList(resource) {
     var ret = [];
     extend(ret, resource.uriParameters);
