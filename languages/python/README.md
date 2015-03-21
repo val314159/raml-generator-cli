@@ -3,25 +3,26 @@ README
 
 This is the python generator for RAML.  It creates:
 
-clients:
-  requests - probably the most common
-  httplib/urllib2 - built-in libraries
-  httplib2/urllib2 - enhanced versions of built-in libraries
-  fetchurl - not to be confused with the google app engine fetch
-  Google Fetch API - Google app engine specific
-  Tornado HTTPClient - Hi-speed Async requests
-  pulsar - newer async framework
+## Clients:
 
-  - possible future -
+-  requests - probably the most common
+-  httplib/urllib2 - built-in libraries
+-  httplib2/urllib2 - enhanced versions of built-in libraries
+-  fetchurl - not to be confused with the google app engine fetch
+-  Google Fetch API - Google app engine specific
+-  Tornado HTTPClient - Hi-speed Async requests
+-  pulsar - newer async framework
 
-  pulsar - newer async framework
+possible future implementations:
 
-  - not supported -
+-  pulsar - newer async framework
 
-  urllib2 - only GET/POST supported.  use httplib directly.
-  grequests - gevent version of requests.  Doesn't work at ALL with SSL (how useless is that?)
+not supported
 
-servers:
+-  urllib2 - only GET/POST supported.  use httplib directly.
+-  grequests - gevent version of requests.  Doesn't work at ALL with SSL (how useless is that?)
+
+## Servers:
 
 Mock Object - generates a mock object that returns minimal information.
 
