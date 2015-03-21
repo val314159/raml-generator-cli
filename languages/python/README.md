@@ -22,13 +22,19 @@ clients:
   grequests - gevent version of requests.  Doesn't work at ALL with SSL (how useless is that?)
 
 servers:
-  Mock Object - generates a mock object that returns minimal information.
-    * Can be used as a base object for overloading
-    * Can be used as a stub object for a guideline of what signamtures are expected
-  WSGI Middleware - the "standard" way to do it.
-  Gevent WSGI Server - gevent's high-performance async implementation of WSGI
-  Tornado Server - one of the most popular non-gevent async frameworks (from Facebook)
-    * Is there even a middleware concept in Tornado?
-    * If not, maybe just supply a routing table.  Probably a list of (url,handler) tuples.
 
-~~Pretty much most servers will server up WSGI middleware just fine ~~
+Mock Object - generates a mock object that returns minimal information.
+
+  - Can be used as a base object for overloading
+  - Can be used as a stub object for a guideline of what signamtures are expected
+
+WSGI Middleware - the "standard" way to do it.
+
+Gevent WSGI Server - gevent's high-performance async implementation of WSGI
+
+Tornado Server - one of the most popular non-gevent async frameworks (from Facebook)
+
+  - Is there even a middleware concept in Tornado?
+  - If not, maybe just supply a routing table.  Probably a list of (url,handler) tuples.
+
+*Pretty much most servers will server up WSGI middleware just fine*
