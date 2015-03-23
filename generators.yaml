@@ -1,0 +1,9 @@
+repos:
+  javascript:
+    repo: https://github.com/mulesoft/raml-client-generator
+    dir: raml-client-generator
+    subdir: languages/javascript
+  python:
+    repo: https://github.com/val314159/raml-python-generator
+    dir: raml-python-generator
+    subdir: https://github.com/val314159/raml-python-generator
