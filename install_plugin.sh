@@ -16,6 +16,14 @@ lang=$3
 
 mkdir repo 2>/dev/null
 (cd repo ; git clone $repo)
+
+if [ -e languages ];then
+  echo already has languages directory...
+else
+  echo installing languages directory...
+  cp orig.languages languages
+fi
+
 cp -r repo/$from_dir languages
 
 cp languages/languages.js languages.js.tmp

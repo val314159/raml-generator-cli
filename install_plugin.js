@@ -22,6 +22,8 @@ var generators = YAML.load(fs.readFileSync('generators.yaml'));
 var cmd0 = 'sh install_plugin.sh https://github.com/val314159/raml-python-generator raml-python-generator/languages/python python';
 var cmd = 'sh install_plugin.sh {{url}} {{dir}}/{{subdir}} {{@key}}';
 
+console.log("ASDFSDF");
+
 process.argv.forEach(function(val, index, array) {
 	if (index>1) {
 	    console.log('0 ----;//////////// ////////////: ' + val);
