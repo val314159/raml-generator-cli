@@ -89,6 +89,8 @@
     "raml-generator": "^0.1.1",
     "snake-case": "^1.0.1",
     "upper-case": "^1.0.3",
+    "js-yaml": "^3.2.7",
+    "upper-case": "^1.0.3",
     "yargs": "^3.0.4"
   }
 }
