@@ -21,7 +21,7 @@ if [ -e languages ];then
   echo already has languages directory...
 else
   echo installing languages directory...
-  cp orig.languages languages
+  cp -r orig.languages languages
 fi
 
 cp -r repo/$from_dir languages

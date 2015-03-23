@@ -4,9 +4,11 @@
 repos:
   javascript:
     repo: https://github.com/val314159/raml-client-generator
+    desc: The default javascript client generator
     dir: raml-client-generator
     subdir: languages/javascript
   python:
     repo: https://github.com/val314159/raml-python-generator
+    desc: The default python client/server generator
     dir: raml-python-generator
     subdir: languages/python
