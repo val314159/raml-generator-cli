@@ -1,17 +1,46 @@
-# RAML Client Generator
+# RAML Generator CLI
 
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][downloads-image]][downloads-url]
-[![Build status][travis-image]][travis-url]
-
-Template-driven generator of clients for APIs described by RAML.
+Template-driven generator of RAML objects for APIs described by RAML.
 
 ## Installation
 
-First, make sure [node](http://nodejs.org) has been installed. Then, we can install it using `npm`:
+First, make sure [node](http://nodejs.org) has been installed.
 
 ```sh
-npm install raml-client-generator -g
+# Download this package (if you haven't already)
+git clone https://github.com/val314159/raml-generator-cli
+
+# cd into the aforementioned package:
+cd raml-generator-cli
+
+# Then, we can install it using `npm`:
+npm install
+```
+
+## Installing Plugins:
+
+To list plugins:
+
+```sh
+node install_plugin.js
+```
+
+To install javascript:
+
+```sh
+node install_plugin.js javascript
+```
+
+To install python:
+
+```sh
+node install_plugin.js python
+```
+
+To install both:
+
+```sh
+node install_plugin.js javascript python
 ```
 
 ## Usage
@@ -19,7 +48,7 @@ npm install raml-client-generator -g
 To generate an API client, point the command to your base RAML file and specify the output directory and language.
 
 ```sh
-raml-to-client api.raml -o api-client -l javascript
+./bin/raml-generator-cli.js [api.raml] -o [output_directory] -l [target_language]
 ```
 
 ## Supported Languages
