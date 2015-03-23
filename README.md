@@ -37,12 +37,6 @@ To install python:
 node install_plugin.js python
 ```
 
-To install both:
-
-```sh
-node install_plugin.js javascript python
-```
-
 ## Usage
 
 To generate an API client, point the command to your base RAML file and specify the output directory and language.
